@@ -1,0 +1,53 @@
+
+<ion-header>
+  
+    <ion-navbar>
+      <ion-buttons start>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+     
+        <ion-title>My profile</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    <ion-content class="background">
+       
+    <ion-avatar>
+      <h1><img src="assets/imgs/avatar-user-teacher-312a499a08079a12-512x512.png" height="30" width="30" class="center"></h1>
+      </ion-avatar>
+
+        <ion-card>
+        <ion-card-content>
+
+          <ion-list no-lines>
+
+              <ion-item>
+                  <ion-label><ion-icon name="person"></ion-icon></ion-label>
+                  <ion-input disabled="true" [(ngModel)]="username" placeholder="Amelia Mokhtar" type="text"></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                  <ion-label><ion-icon name="ios-information-circle"></ion-icon></ion-label>
+                  <ion-input disabled="true"[(ngModel)]="username" placeholder="Student" type="text"></ion-input>
+                </ion-item>
+           
+                <ion-item>
+                  <ion-label><ion-icon name="ios-call"></ion-icon></ion-label>
+                  <ion-input disabled="true"[(ngModel)]="username" placeholder="+6 010 938 9275" type="text"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                      <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+                      <ion-input disabled="true"[(ngModel)]="email" placeholder="amlmokhtar@gmail.com" type="text"></ion-input>
+                </ion-item>
+
+            <button ion-button color="primary" (click)="editProfile()"><ion-icon name=""></ion-icon>Edit</button>
+            
+                  </ion-list>
+        </ion-card-content>
+      </ion-card>
+      <button ion-button color="primary" (click)="logout()"> Logout</button>
+    </ion-content>

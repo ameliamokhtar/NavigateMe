@@ -1,0 +1,37 @@
+page-signup {
+    .background{
+        background: linear-gradient(25deg, #C9D2D8, #85C1E9, #4E5EFC, #0B3285, #1C4C6C);
+        background-size: 400% 400%;
+        animation: colorchange 30s ease-out infinite;
+    }
+
+    @keyframes colorchange{
+        0%{background-position: 0% 99%}
+        50%{background-position: 100% 1%}
+        100%{background-position: 10% 90%}
+    }
+
+    .scroll-content {
+        text-align: center;
+    }
+
+    ion-card.card{
+        background: rgba(232, 230, 230, 0.2px);
+        border-radius: 10px;
+    }
+
+    .item{
+        background: rgba(232, 230, 230, 0px);
+    }
+
+    ion-input{
+        border-bottom: #FD4D73, solid 1px;
+    }
+
+    h1{
+        color: #ffff;
+        font-size: 3em;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: lighter;
+    }
+}

@@ -1,0 +1,29 @@
+
+<ion-content class="background">
+  <h1><img src="http://www.myiconfinder.com/uploads/iconsets/76f453c62108782f0cad9bfc2da1ae9d.png" height="30" width="30">NavigateMe</h1>
+  <ion-card>
+    <ion-card-header>
+      Login
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <br>
+          <p>Forgot password?<a> Get here</a></p>
+        </ion-item>
+        <button ion-button color="primary" block outline (click)="load()">Login</button>
+      </ion-list>
+      <br>
+      <p (click)="openSignUpPage()">Create Account</p>
+    </ion-card-content>
+  </ion-card>
+  </ion-content>
+  

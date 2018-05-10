@@ -1,0 +1,74 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <ion-buttons>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+    <ion-title>My Notification</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="background">
+  <ion-list no-border>
+
+    <ion-list-header>
+      Inbox
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon name='ios-chatboxes' item-start></ion-icon>
+      New messages
+      <ion-badge item-end color="secondary">0 unread</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='ios-person-add' item-start></ion-icon>
+      Friend request
+      <ion-badge item-end color="danger">3</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='ios-people' item-start></ion-icon>
+      My friendlist
+      <ion-badge item-end color="secondary">119</ion-badge>
+    </ion-item>
+
+  </ion-list>
+
+
+  <ion-list>
+
+    <ion-list-header>
+      General
+    </ion-list-header>
+
+    <ion-item>
+      <ion-range [(ngModel)]="brightness">
+        <ion-icon range-left small name="sunny"></ion-icon>
+        <ion-icon range-right name="sunny"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle checked="true"></ion-toggle>
+      <ion-label>
+        Mute
+      </ion-label>
+      <ion-icon name='ios-notifications-off' item-start></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle checked="true"></ion-toggle>
+      <ion-label>
+        Night mode
+      </ion-label>
+      <ion-icon name='ios-moon' item-start></ion-icon>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
