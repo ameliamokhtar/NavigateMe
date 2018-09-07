@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { ToastController } from 'ionic-angular';
 
 export interface PageInterface {
   title: string;
@@ -23,17 +24,26 @@ export class MainPage {
   @ViewChild(Nav) nav: Nav;
  
   pages: PageInterface[] = [
-    { title: 'Home', pageName: 'TabsPage', tabComponent: 'Tab1Page', index: 0, icon: 'ios-home' },
-    { title: 'My profile', pageName: 'TabsPage', tabComponent: 'Tab2Page', index: 1, icon: 'ios-person' },
-    { title: 'Notification', pageName: 'TabsPage', tabComponent: 'Tab3Page', index: 2, icon: 'ios-notifications' },
-    { title: 'Search', pageName: 'TabsPage', tabComponent: 'Tab4Page', index: 3, icon: 'ios-search' },
+    { title: 'Location', pageName: 'TabsPage', tabComponent: 'Tab1Page', index: 0, icon: 'ios-pin-outline' },
+    { title: 'My profile', pageName: 'TabsPage', tabComponent: 'Tab2Page', index: 1, icon: 'ios-person-outline' },
+    { title: 'Navigate', pageName: 'TabsPage', tabComponent: 'Tab4Page', index: 2, icon: 'ios-navigate-outline' },
+    { title: 'Contact Us', pageName: 'TabsPage', tabComponent: 'Tab3Page', index: 3, icon: 'ios-chatboxes-outline' },
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   logout(){
     this.navCtrl.push(LoginPage);
+    this.presentToast();
+}
+
+presentToast() {
+  let toast = this.toastCtrl.create({
+    message: 'Log out successful.',
+    duration: 3000
+  });
+  toast.present();
 }
 
   openPage(page: PageInterface) {

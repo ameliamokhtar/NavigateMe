@@ -1,53 +1,51 @@
 page-slider {
     .tutorial-page {
 
-         .background{
-        background: linear-gradient(25deg, #C9D2D8, #85C1E9, #4E5EFC, #0B3285, #1C4C6C);
-        background-size: 400% 400%;
-        animation: colorchange 30s ease-out infinite;
-    }
+        .background{
+       background: linear-gradient(25deg, #C9D2D8, #85C1E9, #4E5EFC, #0B3285, #1C4C6C);
+       background-size: 400% 400%;
+       animation: colorchange 30s ease-out infinite;
+   }
 
-    @keyframes colorchange{
-        0%{background-position: 0% 99%}
-        50%{background-position: 100% 1%}
-        100%{background-position: 10% 90%}
-    }
+   @keyframes colorchange{
+       0%{background-position: 0% 99%}
+       50%{background-position: 100% 1%}
+       100%{background-position: 10% 90%}
+   }
 
-        .toolbar-background {
-          background: #fff;
-          border-color: transparent;
-        }
-      
-        .slide-zoom {
-          height: 100%;
-        }
-      
-        .slide-title {
-          margin-top: 2.8rem;
-        }
-      
-        .slide-image {
-          max-height: 50%;
-          max-width: 60%;
-          margin: 18px 0;
-        }
-      
-        b {
-          font-weight: 500;
-        }
-      
-        p {
-          padding: 0 40px;
-          font-size: 14px;
-          line-height: 1.5;
-          color: #60646B;
-      
-          b {
-            color: #000000;
-          }
-        }
-      
-      }
-      
-
+       .toolbar-background {
+         background: #fff;
+         border-color: transparent;
+       }
+     
+       .slide-zoom {
+         height: 100%;
+       }
+     
+       .slide-title {
+         margin-top: 2.8rem;
+       }
+     
+       .slide-image {
+         max-height: 50%;
+         max-width: 60%;
+         margin: 18px 0;
+       }
+     
+       b {
+         font-weight: 500;
+       }
+     
+       p {
+         padding: 0 40px;
+         font-size: 14px;
+         line-height: 1.5;
+         color: #60646B;
+     
+         b {
+           color: #000000;
+         }
+       }
+     
+     }
 }

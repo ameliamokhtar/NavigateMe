@@ -6,10 +6,17 @@
     </button>
   </ion-buttons>
 
-
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+<ion-title>Location</ion-title>
+</ion-navbar>
 </ion-header>
 
 <ion-content class="background">
+
+    <ion-searchbar
+    [(ngModel)]="myInput"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+  
 </ion-content>

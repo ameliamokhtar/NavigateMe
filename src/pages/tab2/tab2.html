@@ -26,28 +26,40 @@
 
               <ion-item>
                   <ion-label><ion-icon name="person"></ion-icon></ion-label>
-                  <ion-input disabled="true" [(ngModel)]="username" placeholder="Amelia Mokhtar" type="text"></ion-input>
+                  <ion-input disabled="true" [(ngModel)]="fullname" name="fullname" type="text"></ion-input>
                 </ion-item>
-                
+
+                <ion-item>
+                  <ion-label><ion-icon name="md-key"></ion-icon></ion-label>
+                  <ion-input disabled="true" [(ngModel)]="password" name="password" type="password"></ion-input>
+                </ion-item>
+
                 <ion-item>
                   <ion-label><ion-icon name="ios-information-circle"></ion-icon></ion-label>
-                  <ion-input disabled="true"[(ngModel)]="username" placeholder="Student" type="text"></ion-input>
+                  <ion-input disabled="true" [(ngModel)]="role" name="role" type="text"></ion-input>
                 </ion-item>
+
+                <ion-item>
+                  <ion-label><ion-icon name="ios-pin"></ion-icon></ion-label>
+                  <ion-input disabled="true" [(ngModel)]="address" name="address" type="text"></ion-input>
+                </ion-item>
+                
            
                 <ion-item>
                   <ion-label><ion-icon name="ios-call"></ion-icon></ion-label>
-                  <ion-input disabled="true"[(ngModel)]="username" placeholder="+6 010 938 9275" type="text"></ion-input>
+                  <ion-input disabled="true"[(ngModel)]="mobile"  name="mobile" type="text"></ion-input>
                 </ion-item>
 
                 <ion-item>
                       <ion-label><ion-icon name="mail"></ion-icon></ion-label>
-                      <ion-input disabled="true"[(ngModel)]="email" placeholder="amlmokhtar@gmail.com" type="text"></ion-input>
+                      <ion-input disabled="true"[(ngModel)]="email"  name="email" type="text"></ion-input>
                 </ion-item>
+
+
 
             <button ion-button color="primary" (click)="editProfile()"><ion-icon name=""></ion-icon>Edit</button>
             
                   </ion-list>
         </ion-card-content>
       </ion-card>
-      <button ion-button color="primary" (click)="logout()"> Logout</button>
     </ion-content>

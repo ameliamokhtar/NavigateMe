@@ -4,15 +4,23 @@ import { AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { LoadingController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
-
+import { ServiceProvider } from '../../providers/service/service';
 @IonicPage()
 @Component({
   selector: 'page-tab2',
   templateUrl: 'tab2.html',
 })
 export class Tab2Page {
+  fullname: any;
+  password: any;
+  role: any;
+  mobile: any;
+  email: any;
+  address: any;
+  position: any;
 
-  constructor(public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public service: ServiceProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
+    this.setData();
   }
 
   editProfile() {
@@ -21,23 +29,32 @@ export class Tab2Page {
 
       inputs: [
         {
-          name: 'name',
-          placeholder: 'Amelia Mokhtar'
+          name: 'fullname',
+          value: this.fullname
         },
         {
           name: 'password',
-          placeholder: '********'
+          value: this.password,
+          type: 'password'
         },
         {
-          name: 'mobilenumber',
-          placeholder: '+6 010 938 9275'
+          name: 'role',
+          value: this.role
+        },
+        {
+          name: 'address',
+          value: this.address
+        },
+        {
+          name: 'mobile',
+          value: this.mobile
         },
         {
           name: 'email',
-          placeholder: 'ameliamokhtar96@gmail.com'
+          value: this.email
         },
       ],
-      
+
       buttons: [
         {
           text: 'Cancel',
@@ -49,6 +66,7 @@ export class Tab2Page {
           text: 'Save',
           handler: data => {
             console.log('Save clicked');
+            this.save(data);
             this.presentLoading();
           }
         }
@@ -63,21 +81,45 @@ export class Tab2Page {
       duration: 500
     });
     loader.present();
-    this.presentToast();
+    this.presentToast('Changes saved');
   }
 
-  presentToast() {
+  presentToast(message) {
     let toast = this.toastCtrl.create({
-      message: 'Changes saved',
+      message: message,
       duration: 3000
     });
     toast.present();
   }
 
-  logout(){
+  logout() {
     this.navCtrl.push(LoginPage);
-}
-
+  }
+  setData(){
+    this.fullname = sessionStorage.getItem('fullname')
+    this.password = sessionStorage.getItem('password')
+    this.role = sessionStorage.getItem('role')
+    this.mobile = sessionStorage.getItem('mobile')
+    this.email = sessionStorage.getItem('email')
+  }
+  save(info) {
+    this.service.updateProfileInfo(info).subscribe(res => {
+      if (res && res.successful) {
+        sessionStorage.setItem('fullname',res.full_name)
+        sessionStorage.setItem('password',res.password)
+        if(res && res.role === 1)
+        sessionStorage.setItem('role','Staff')
+        else(res && res.role === 2)
+        sessionStorage.setItem('role','Student')
+        sessionStorage.setItem('mobile',res.phone_number)
+        sessionStorage.setItem('email',res.email)
+        this.setData();
+        this.presentToast(res.message)
+      } else {
+        this.presentToast(res.error)
+      }
+    })
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Tab2Page');
   }

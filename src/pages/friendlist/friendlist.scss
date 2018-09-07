@@ -1,6 +1,6 @@
-page-login {
+page-friendlist {
     .background{
-        background: linear-gradient(25deg,#C9D2D8, #85C1E9, #D2EBFC);
+        background: linear-gradient(25deg, #C9D2D8, #85C1E9, #D2EBFC);
         background-size: 400% 400%;
         animation: colorchange 30s ease-out infinite;
     }
@@ -9,10 +9,6 @@ page-login {
         0%{background-position: 0% 99%}
         50%{background-position: 100% 1%}
         100%{background-position: 10% 90%}
-    }
-
-    .scroll-content {
-        text-align: center;
     }
 
     ion-card.card{

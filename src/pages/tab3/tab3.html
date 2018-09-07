@@ -1,74 +1,49 @@
-
 <ion-header>
 
   <ion-navbar>
-      <ion-buttons>
+    <ion-buttons>
       <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-      </ion-buttons>
-    <ion-title>My Notification</ion-title>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Contact Us</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content class="background">
-  <ion-list no-border>
 
-    <ion-list-header>
-      Inbox
-    </ion-list-header>
+  <ion-card>
+    <ion-card-content>
+      <ion-list no-lines>
+          <form [formGroup]="userfeedbackForm">
+        <ion-item>
+          <ion-label>
+            <ion-icon name="person"></ion-icon>
+          </ion-label>
+          <ion-input disabled="true" formControlName="fullname" [(ngModel)]="fullname" placeholder="Full name" type="text"></ion-input>
+          <!--<ion-input disabled="true" [(ngModel)]="fullname" name="fullname" type="text"></ion-input>-->
+        </ion-item>
 
-    <ion-item>
-      <ion-icon name='ios-chatboxes' item-start></ion-icon>
-      New messages
-      <ion-badge item-end color="secondary">0 unread</ion-badge>
-    </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="mail"></ion-icon>
+          </ion-label>
+          <ion-input disabled="true" formControlName="email" [(ngModel)]="email" placeholder="Email" type="text"></ion-input>
+          <!--<ion-input disabled="true" [(ngModel)]="email" name="email" type="text"></ion-input>-->
+        </ion-item>
 
-    <ion-item>
-      <ion-icon name='ios-person-add' item-start></ion-icon>
-      Friend request
-      <ion-badge item-end color="danger">3</ion-badge>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon name='ios-people' item-start></ion-icon>
-      My friendlist
-      <ion-badge item-end color="secondary">119</ion-badge>
-    </ion-item>
-
-  </ion-list>
-
-
-  <ion-list>
-
-    <ion-list-header>
-      General
-    </ion-list-header>
-
-    <ion-item>
-      <ion-range [(ngModel)]="brightness">
-        <ion-icon range-left small name="sunny"></ion-icon>
-        <ion-icon range-right name="sunny"></ion-icon>
-      </ion-range>
-    </ion-item>
-
-    <ion-item>
-      <ion-toggle checked="true"></ion-toggle>
-      <ion-label>
-        Mute
-      </ion-label>
-      <ion-icon name='ios-notifications-off' item-start></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-toggle checked="true"></ion-toggle>
-      <ion-label>
-        Night mode
-      </ion-label>
-      <ion-icon name='ios-moon' item-start></ion-icon>
-    </ion-item>
-
-  </ion-list>
-
+        <ion-item>
+          <ion-label>
+            <ion-icon name="ios-create"></ion-icon>
+          </ion-label>
+          <ion-input formControlName="userfeedback" [(ngModel)]="userfeedback" placeholder="Write your message here" type="text"></ion-input>
+          <!--<ion-input [(ngModel)]="userfeedback" name="userfeedback" type="text"></ion-input>-->
+        </ion-item>
+        <br>
+        <button ion-button color="primary" block outline (click)="getFeedback(userfeedbackForm.value)">Send</button>
+      </form>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

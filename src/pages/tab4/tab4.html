@@ -1,13 +1,12 @@
-
 <ion-header>
 
   <ion-navbar>
-      <ion-buttons>
+    <ion-buttons>
       <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-      </ion-buttons>
-    <ion-title>Search</ion-title>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Navigate</ion-title>
   </ion-navbar>
 
   <ion-toolbar no-border-top>
@@ -30,205 +29,103 @@
 
 <ion-content class="background">
 
-  <ion-searchbar
-  [(ngModel)]="myInput"
-  [showCancelButton]="shouldShowCancel"
-  (ionInput)="onInput($event)"
-  (ionCancel)="onCancel($event)">
-</ion-searchbar>
+  <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+  </ion-searchbar>
 
-<div [ngSwitch]="search">
-  <ion-list *ngSwitchCase="'staffs'">
-      <ion-item-sliding>
-        <ion-item (click)="doAlert()">
+  <div [ngSwitch]="search">
+    <ion-list *ngSwitchCase="'staffs'" >
+
+      <ion-item-sliding *ngFor="let staff of staff_information">
+        <ion-item (click)="doAlert(staff)" >
           <ion-avatar item-start>
             <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
           </ion-avatar>
-          <h3>Dr Mohd Nizam B Husen</h3>
-          <h3>Room 1903, Level 19</h3>
-          <p>Head of Section Software Engineering</p>
+          <h3><b>{{staff.prefix + " " + staff.full_name}}</b></h3>
+          <h3><b>{{staff.position}}</b></h3>
+          <h3>{{staff.address}}</h3>
+          <h3>{{staff.phone_num}}</h3>
+          <h3>{{staff.email}}</h3>
         </ion-item>
         <ion-item-options side="left">
-            <button ion-button (click)="sendSMS()" color="primary">
-              <ion-icon name="text"></ion-icon>
-              Text
-            </button>
-            <button ion-button (click)="call()" color="secondary">
-              <ion-icon name="call"></ion-icon>
-              Call
-            </button>
-          </ion-item-options>
-          <ion-item-options (click)="Navigate()" side="right">
-            <button ion-button color="primary">
-              <ion-icon name="ios-navigate"></ion-icon>
-              Navigate
-            </button>
-          </ion-item-options>
-        </ion-item-sliding>
-        
-        <ion-item-sliding>
-            <ion-item (click)="doAlert()">
-              <ion-avatar item-start>
-                <img src="assets/imgs/avatar-user-teacher-312a499a08079a12-512x512.png">
-              </ion-avatar>
-              <h3>Nor Azlina Binti Ali</h3>
-              <h3>Room 1907, Level 19</h3>
-              <p>Full time lecturer</p>
-            </ion-item>
-            <ion-item-options side="left">
-                <button ion-button color="primary">
-                  <ion-icon name="text"></ion-icon>
-                  Text
-                </button>
-                <button ion-button color="secondary">
-                  <ion-icon name="call"></ion-icon>
-                  Call
-                </button>
-              </ion-item-options>
-              <ion-item-options side="right">
-                <button ion-button color="primary">
-                  <ion-icon name="ios-navigate"></ion-icon>
-                  Navigate
-                </button>
-              </ion-item-options>
-            </ion-item-sliding>
-      
-            <ion-item-sliding>
-                <ion-item (click)="doAlert()">
-                  <ion-avatar item-start>
-                    <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
-                  </ion-avatar>
-                  <h3>Prof Shamsul Anuar Bin Mokhtar</h3>
-                  <h3>Room 1909, Level 19</h3>
-                  <p>Full time lecturer</p>
-                </ion-item>
-                <ion-item-options side="left">
-                    <button ion-button color="primary">
-                      <ion-icon name="text"></ion-icon>
-                      Text
-                    </button>
-                    <button ion-button color="secondary">
-                      <ion-icon name="call"></ion-icon>
-                      Call
-                    </button>
-                  </ion-item-options>
-                  <ion-item-options side="right">
-                    <button ion-button color="primary">
-                      <ion-icon name="ios-navigate"></ion-icon>
-                      Navigate
-                    </button>
-                  </ion-item-options>
-                </ion-item-sliding>
-      </ion-list>
-      
-  <ion-list *ngSwitchCase="'offices'">
-    <ion-item-sliding>
-      <ion-item (click)="doAlert()">
-        <h3>Student Development and Campus Lifestyle</h3>
-        <h3>Level 1</h3>
-      </ion-item>
-      <ion-item-options side="left">
-          <button ion-button color="primary">
+          <button ion-button (click)="sendSMS(staff.phone_num)" color="primary">
             <ion-icon name="text"></ion-icon>
             Text
           </button>
-          <button ion-button color="secondary">
+          <button ion-button (click)="call(staff.phone_num)" color="secondary">
             <ion-icon name="call"></ion-icon>
             Call
           </button>
         </ion-item-options>
-        <ion-item-options side="right">
+        <ion-item-options (click)="NavigateStaff()" side="right">
           <button ion-button color="primary">
             <ion-icon name="ios-navigate"></ion-icon>
             Navigate
           </button>
         </ion-item-options>
       </ion-item-sliding>
-      
-      <ion-item-sliding>
-          <ion-item (click)="doAlert()">
-            <h3>Finance</h3>
-            <h3>Level 25</h3>
-          </ion-item>
-          <ion-item-options side="left">
-              <button ion-button color="primary">
-                <ion-icon name="text"></ion-icon>
-                Text
-              </button>
-              <button ion-button color="secondary">
-                <ion-icon name="call"></ion-icon>
-                Call
-              </button>
-            </ion-item-options>
-            <ion-item-options side="right">
-              <button ion-button color="primary">
-                <ion-icon name="ios-navigate"></ion-icon>
-                Navigate
-              </button>
-            </ion-item-options>
-          </ion-item-sliding>
-    
-          <ion-item-sliding>
-              <ion-item (click)="doAlert()">
-                <h3>Academic</h3>
-                <h3>Level 3</h3>
-              </ion-item>
-              <ion-item-options side="left">
-                  <button ion-button color="primary">
-                    <ion-icon name="text"></ion-icon>
-                    Text
-                  </button>
-                  <button ion-button color="secondary">
-                    <ion-icon name="call"></ion-icon>
-                    Call
-                  </button>
-                </ion-item-options>
-                <ion-item-options side="right">
-                  <button ion-button color="primary">
-                    <ion-icon name="ios-navigate"></ion-icon>
-                    Navigate
-                  </button>
-                </ion-item-options>
-              </ion-item-sliding>
-  </ion-list>
+    </ion-list>
 
-  <ion-list *ngSwitchCase="'classrooms'">
-    <ion-item (click)="doAlert()">
-      <h3>Software Engineering Section</h3>
-      <h3>Level 18 & 19</h3>
-    </ion-item>
-    <ion-item (click)="doAlert()">
-      <h3>Computer Security Section</h3>
-      <h3>Level 4 & 5</h3>
-    </ion-item>
-    <ion-item (click)="doAlert()">
-      <h3>Animation & Multimedia Section</h3>
-      <h3>Level 8 & 9</h3>
-    </ion-item>
-    <ion-item (click)="doAlert()">
-      <h3>Networking Section</h3>
-      <h3>Level 11 & 12</h3>
-    </ion-item>
-  </ion-list>
+    <ion-list *ngSwitchCase="'offices'">
+      <ion-item-sliding *ngFor="let location of location_information_offices">
 
-  <ion-list *ngSwitchCase="'facilities'">
-    <ion-item (click)="doAlert()">
-      <h3>Library</h3>
-      <h3>Level 14</h3>
-    </ion-item>
-    <ion-item (click)="doAlert()">
-      <h3>Prayer room</h3>
-      <h3>Level 13</h3>
-    </ion-item>
-    <ion-item (click)="doAlert()">
-      <h3>Student Lounge</h3>
-      <h3>Level 1</h3>
-    </ion-item>
-    <ion-item (click)="doAlert()">
-      <h3>Bestari Hall</h3>
-      <h3>Level 2</h3>
-    </ion-item>
-  </ion-list>
-</div>
+        <ion-item (click)="doAlertOffices(location)" >
+          <ion-avatar item-start>
+            <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
+          </ion-avatar>
+          <h3><b>{{location.location_name}}</b></h3>
+          <h3>{{location.address}}</h3>
+          <h3>{{location.phone_num}}</h3>
+        </ion-item>
+
+        <ion-item-options side="left">
+          <button ion-button (click)="sendSMS(location.phone_num)" color="primary">
+            <ion-icon name="text"></ion-icon>
+            Text
+          </button>
+          <button ion-button (click)="call(location.phone_num)" color="secondary">
+            <ion-icon name="call"></ion-icon>
+            Call
+          </button>
+        </ion-item-options>
+        <ion-item-options (click)="NavigateStaff()" side="right">
+          <button ion-button color="primary">
+            <ion-icon name="ios-navigate"></ion-icon>
+            Navigate
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'classrooms'">
+      <ion-item-sliding *ngFor="let location of location_information_classrooms">
+
+        <ion-item (click)="doAlert()" >
+          <ion-avatar item-start>
+            <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
+          </ion-avatar>
+          <h3>{{location.location_name}}</h3>
+          <h3>{{location.address}}</h3>
+          <p>{{location.phone_num}}</p>
+        </ion-item>
+      </ion-item-sliding>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'facilities'">
+      <ion-item-sliding *ngFor="let location of location_information_facilities">
+
+        <ion-item (click)="doAlert()" >
+          <ion-avatar item-start>
+            <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
+          </ion-avatar>
+          <h3>{{location.location_name}}</h3>
+          <h3>{{location.address}}</h3>
+          <h3>{{location.phone_num}}</h3>
+        </ion-item>
+      </ion-item-sliding>
+
+    </ion-list>
+  </div>
 
 </ion-content>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { EstimoteBeacons } from '@ionic-native/estimote-beacons';
 
 @IonicPage()
 @Component({
@@ -8,11 +9,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Tab1Page {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  beaconData: any;
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private platform: Platform,
+    private change: ChangeDetectorRef,
+    private eb: EstimoteBeacons) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Tab1Page');
+    this.eb.requestAlwaysAuthorization();
+
+    this.eb.enableAnalytics(true);
   }
+
+
+
+
+
+  // connectToBeacon(beacon){
+
+  // }
+
+
 
 }

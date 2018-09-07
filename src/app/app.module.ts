@@ -8,6 +8,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { HttpModule } from '@angular/http';
 import { CallNumber } from '@ionic-native/call-number';
 import { SMS } from '@ionic-native/sms';
+import { ServiceProvider } from '../providers/service/service';
+import { EstimoteBeacons } from '@ionic-native/estimote-beacons';
 //import { AuthService } from '../providers/auth-service';
 
 @NgModule({
@@ -28,7 +30,9 @@ import { SMS } from '@ionic-native/sms';
     CallNumber,
     SMS,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    EstimoteBeacons,
     //AuthService,
+    ServiceProvider,
     AuthServiceProvider
   ]
 })

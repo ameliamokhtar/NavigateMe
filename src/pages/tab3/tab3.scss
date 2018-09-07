@@ -1,6 +1,16 @@
 page-tab3 {
+
+    
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
     .background{
-        background: linear-gradient(25deg, #C9D2D8, #85C1E9, #4E5EFC, #0B3285, #1C4C6C);
+        background: linear-gradient(25deg,#C9D2D8, #85C1E9, #D2EBFC);
         background-size: 400% 400%;
         animation: colorchange 30s ease-out infinite;
     }
@@ -34,5 +44,14 @@ page-tab3 {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-weight: lighter;
     }
+
+
+    ion-avatar img  {
+        width:100% !important;
+        height : 100% !important;
+        max-width: 100px !important;  //any size
+        max-height: 100px !important; //any size
+        align-items: center;
+        }
 
 }
