@@ -1,4 +1,8 @@
 page-tab1 {
+
+  ion-card{
+   align-items: center;
+}
   
   .background{
     background-image: url("http://3.bp.blogspot.com/-xCVxKqJ9GFk/Vm3kX6hKPPI/AAAAAAAACk8/SFWRCsIXFwQ/s1600/Screenshot_2015-12-10-00-34-10.jpg");
@@ -20,7 +24,14 @@ page-tab1 {
         line-height: 30px;
         padding-left: 10px;
       }
+
       #map {
         height: 100%;
       }
+
+      .truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }

@@ -13,6 +13,8 @@ import { LoadingController } from 'ionic-angular';
 //import Beacons from 'react-native-beacons-manager';
 //import { EstimoteBeacons } from '@ionic-native/estimote-beacons';
 import { Http } from '@angular/http';
+import {MenuProvider} from '../../providers/menu/menu';
+
 
 @IonicPage()
 @Component({
@@ -29,18 +31,23 @@ export class Tab4Page {
   address: any;
   locationid: any;
   locationname: any;
-
+  myInput: any;
   NavigateMe: any;
   staff_information: any;
   location_information_offices: any = [];
   location_information_classrooms: any = [];
   location_information_facilities: any = [];
   items;
+  search:any;
+  data: any[];
+  searchResult:any=[];
 
   constructor(public http: Http, private service: ServiceProvider, private toastCtrl: ToastController, public loadingCtrl: LoadingController,
     private sms: SMS, private callSvc: CallNumber, public alerCtrl: AlertController,
     public navCtrl: NavController, public navParams: NavParams) {
-
+      console.log('Hello MenuProvider Provider');
+      this.data = [];
+      this.search = 'staffs';
   }
 
   presentToast(message: any) {
@@ -180,7 +187,74 @@ export class Tab4Page {
     this.getStaffData();
     this.getOfficeData();
   }
+  onInput(ev){
+    this.searchResult = [];
+    if(this.myInput && this.search === 'staffs'){
+       this.staff_information.forEach(staff=>{
+         if(staff.full_name.toLowerCase().indexOf(this.myInput.toLowerCase()) > -1){
+           if(this.searchResult.indexOf(staff) === -1){
+           this.searchResult.push(staff);
+          }
+         }
+       })
+    }else if(this.myInput && this.search === 'offices'){
+      this.location_information_offices.forEach(office=>{
+        if(office.location_name.toLowerCase().indexOf(this.myInput.toLowerCase()) > -1){
+          if(this.searchResult.indexOf(office) === -1){
+          this.searchResult.push(office);
+         }
+        }
+      })
+    }else if(this.myInput && this.search === 'classrooms'){
+      this.location_information_classrooms.forEach(classroom=>{
+        if(classroom.location_name.toLowerCase().indexOf(this.myInput.toLowerCase()) > -1){
+          if(this.searchResult.indexOf(classroom) === -1){
+          this.searchResult.push(classroom);
+         }
+        }
+      })
+    }else if(this.myInput && this.search === 'facilities'){
+      this.location_information_facilities.forEach(facility=>{
+        if(facility.location_name.toLowerCase().indexOf(this.myInput.toLowerCase()) > -1){
+          if(this.searchResult.indexOf(facility) === -1){
+          this.searchResult.push(facility);
+         }
+        }
+      })
+    }
+  }
 
+  staffInformation(){
+    if(this.myInput){
+      return this.searchResult
+    }else{
+      return this.staff_information;
+    }
+  }
+  locationInformationOffices(){
+    if(this.myInput){
+      return this.searchResult
+    }else{
+      return this.location_information_offices;
+    }
+  }
+  locationInformationClassrooms(){
+    if(this.myInput){
+      return this.searchResult
+    }else{
+      return this.location_information_classrooms;
+    }
+  }
+  locationInformationFacilities(){
+    if(this.myInput){
+      return this.searchResult
+    }else{
+      return this.location_information_facilities;
+    }
+  }
+  changeSegment(){
+    this.myInput = "";
+  }
   getOfficeData() {
     this.service.getOffice().subscribe(res => {
       if (res.successful) {
@@ -202,11 +276,18 @@ export class Tab4Page {
   }
 
   getStaffData() {
+    this.data = [
     this.service.getStaff().subscribe(res => {
       if (res.successful) {
         this.staff_information = res.staffs;
       }
-    })
+    })];
+  }
+
+  filter(kat){
+    return this.data.filter(menu=>{
+      return menu.kat.toLowerCase() === kat.toLowerCase();     
+    });
   }
 
 }

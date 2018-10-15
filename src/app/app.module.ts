@@ -11,6 +11,8 @@ import { SMS } from '@ionic-native/sms';
 import { ServiceProvider } from '../providers/service/service';
 import { EstimoteBeacons } from '@ionic-native/estimote-beacons';
 //import { AuthService } from '../providers/auth-service';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { EstimoteBeacons } from '@ionic-native/estimote-beacons';
     SplashScreen,
     CallNumber,
     SMS,
+    Transfer,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     EstimoteBeacons,
     //AuthService,

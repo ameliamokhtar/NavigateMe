@@ -34,6 +34,7 @@ export class MainPage {
   }
 
   logout(){
+    sessionStorage.clear();
     this.navCtrl.push(LoginPage);
     this.presentToast();
 }

@@ -1,0 +1,25 @@
+
+<ion-content class="background">
+  <h1><img src="assets/imgs/NavigateMe logo.png" height="100" width="100"></h1>
+  <ion-card>
+    <ion-card-header>
+      Reset Password
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-lines>
+          <form [formGroup]="forgotForm">
+            
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input formControlName="email" placeholder="" type="text"></ion-input>
+        </ion-item>
+
+        <button ion-button color="primary" block outline (click)="reset(forgotForm.value)">Reset</button>
+          </form>
+      </ion-list>
+      <br>
+    
+    </ion-card-content>
+  </ion-card>
+  </ion-content>
+  

@@ -5,7 +5,7 @@ import { MainPage } from '../main/main';
 import { ToastController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { ServiceProvider } from '../../providers/service/service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 
 
@@ -56,12 +56,14 @@ export class LoginPage {
   }
 
   forgotPassword() {
-    let alert = this.alertCtrl.create({
-      title: 'Password reset',
-      subTitle: 'We sent you an email with a link to reset your password. You can recover your profile by following the instruction in the email.',
-      buttons: ['OK']
-    });
-    alert.present();
+    this.navCtrl.push('ForgotPage');
+    // let alert = this.alertCtrl.create({
+    //   title: 'Password reset',
+    //   subTitle: 'We sent you an email with a link to reset your password. You can recover your profile by following the instruction in the email.',
+    //   buttons: ['OK']
+    // });
+    // this.service.resetPassword().subscribe();
+    // alert.present();
   }
 
   presentToast(message:any) {

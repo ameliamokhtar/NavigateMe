@@ -29,6 +29,7 @@ export class SignupPage {
       'email': [null, Validators.required],
       'position': [null, Validators.required],
       'location': [null, Validators.required],
+      'address': [null, Validators.required],
     });
   }
 

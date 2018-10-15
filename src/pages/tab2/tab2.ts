@@ -5,6 +5,9 @@ import { LoginPage } from '../login/login';
 import { LoadingController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { ServiceProvider } from '../../providers/service/service';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
+
 @IonicPage()
 @Component({
   selector: 'page-tab2',
@@ -19,10 +22,34 @@ export class Tab2Page {
   address: any;
   position: any;
 
-  constructor(public service: ServiceProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private transfer: Transfer, private camera: Camera, public service: ServiceProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
     this.setData();
   }
 
+  upload() {
+    let options = {
+      quality: 100
+    };
+
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64:
+      const fileTransfer: TransferObject = this.transfer.create();
+      let options1: FileUploadOptions = {
+        fileKey: 'file',
+        fileName: 'profile.jpg',
+        headers: {}
+      }
+      fileTransfer.upload(imageData, 'https://260c6bd4.ngrok.io/backend/upload.php', options1)
+        .then((data) => {
+          // success
+          alert("success");
+        }, (err) => {
+          // error
+          alert("error" + JSON.stringify(err));
+        });
+    });
+  }
   editProfile() {
     let prompt = this.alertCtrl.create({
       title: 'Edit profile',
@@ -95,7 +122,7 @@ export class Tab2Page {
   logout() {
     this.navCtrl.push(LoginPage);
   }
-  setData(){
+  setData() {
     this.fullname = sessionStorage.getItem('fullname')
     this.password = sessionStorage.getItem('password')
     this.role = sessionStorage.getItem('role')
@@ -105,14 +132,14 @@ export class Tab2Page {
   save(info) {
     this.service.updateProfileInfo(info).subscribe(res => {
       if (res && res.successful) {
-        sessionStorage.setItem('fullname',res.full_name)
-        sessionStorage.setItem('password',res.password)
-        if(res && res.role === 1)
-        sessionStorage.setItem('role','Staff')
-        else(res && res.role === 2)
-        sessionStorage.setItem('role','Student')
-        sessionStorage.setItem('mobile',res.phone_number)
-        sessionStorage.setItem('email',res.email)
+        sessionStorage.setItem('fullname', res.full_name)
+        sessionStorage.setItem('password', res.password)
+        if (res && res.role === 1)
+          sessionStorage.setItem('role', 'Staff')
+        else (res && res.role === 2)
+        sessionStorage.setItem('role', 'Student')
+        sessionStorage.setItem('mobile', res.phone_number)
+        sessionStorage.setItem('email', res.email)
         this.setData();
         this.presentToast(res.message)
       } else {

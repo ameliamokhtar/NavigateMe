@@ -5,18 +5,40 @@
 </ion-header>
 
 <ion-content class="background">
-  <h1><img src="http://www.myiconfinder.com/uploads/iconsets/76f453c62108782f0cad9bfc2da1ae9d.png" height="30" width="30">NavigateMe</h1>
-  <ion-card>
+    <h1><img src="assets/imgs/NavigateMe logo.png" height="100" width="100"></h1>
+    <ion-card>
     <ion-card-content>
 
       <ion-list no-lines>
         <form [formGroup]="signupForm">
+
           <ion-item>
             <ion-label>
-              <ion-icon name="md-at"></ion-icon>
+              <ion-icon name="mail"></ion-icon>
             </ion-label>
-            <ion-input formControlName="username" [(ngModel)]="username" placeholder="Username" type="text"></ion-input>
+            <ion-input formControlName="email" [(ngModel)]="email" placeholder="Email" type="text"></ion-input>
           </ion-item>
+
+          <ion-item>
+              <ion-label>
+                <ion-icon name="md-information-circle"></ion-icon>
+              </ion-label>
+              <ion-select formControlName="prefix">
+                <ion-option value="Mr.">Mr.</ion-option>
+                <ion-option value="Mrs.">Mrs.</ion-option>
+                <ion-option value="Dr.">Dr.</ion-option>
+                <ion-option value="Prof.">Prof.</ion-option>
+                <ion-option value="Sir.">Sir.</ion-option>
+                <ion-option value="Madam">Madam</ion-option>
+              </ion-select>
+            </ion-item>
+
+          <ion-item>
+              <ion-label>
+                <ion-icon name="person"></ion-icon>
+              </ion-label>
+              <ion-input formControlName="fullname" [(ngModel)]="fullname" placeholder="Full name" type="text"></ion-input>
+            </ion-item>
 
           <ion-item>
             <ion-label>
@@ -24,26 +46,13 @@
             </ion-label>
             <ion-input formControlName="password" [(ngModel)]="password" placeholder="Password" type="password"></ion-input>
           </ion-item>
+
           <ion-item>
-            <ion-label>
-              <ion-icon name="md-information-circle"></ion-icon>
-            </ion-label>
-            <ion-select formControlName="prefix">
-              <ion-option value="Mr.">Mr.</ion-option>
-              <ion-option value="Mrs.">Mrs.</ion-option>
-              <ion-option value="Dr.">Dr.</ion-option>
-              <ion-option value="Prof.">Prof.</ion-option>
-              <ion-option value="Sir.">Sir.</ion-option>
-              <ion-option value="Madam">Madam</ion-option>
-            </ion-select>
-          </ion-item>
-          
-          <ion-item>
-            <ion-label>
-              <ion-icon name="person"></ion-icon>
-            </ion-label>
-            <ion-input formControlName="fullname" [(ngModel)]="fullname" placeholder="Full name" type="text"></ion-input>
-          </ion-item>
+              <ion-label>
+                <ion-icon name="ios-call"></ion-icon>
+              </ion-label>
+              <ion-input formControlName="phone_num" [(ngModel)]="phone_num" placeholder="Mobile Number" type="text"></ion-input>
+            </ion-item>
 
           <ion-item>
             <ion-label>
@@ -55,38 +64,31 @@
             </ion-select>
           </ion-item>
 
-          <!-- loop location information db data -->
+          <!-- loop position information db data -->
           <ion-item *ngIf="signupForm.value.role === '1'"> 
             <ion-label>
               <ion-icon name="md-information-circle"></ion-icon>
             </ion-label>
-            <ion-select formControlName="location">
-              <ion-option value="1">Staff</ion-option>
-              <ion-option value="2">Student</ion-option>
+            <ion-select formControlName="position">
+              <ion-option value="1">Lecturer</ion-option>
+              <ion-option value="2">Senior Lecturer</ion-option>
+              <ion-option value="3">Deputy Dean</ion-option>
+              <ion-option value="4">Dean</ion-option>
             </ion-select>
           </ion-item>
 
-          <ion-item *ngIf="signupForm.value.role === '1'">
-            <ion-label>
-              <ion-icon name="ice-cream"></ion-icon>
-            </ion-label>
-            <ion-input formControlName="position" [(ngModel)]="position" placeholder="Position" type="text"></ion-input>
-          </ion-item>
-
-
-          <ion-item>
-            <ion-label>
-              <ion-icon name="ios-call"></ion-icon>
-            </ion-label>
-            <ion-input formControlName="phone_num" [(ngModel)]="phone_num" placeholder="Mobile Number" type="text"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>
-              <ion-icon name="mail"></ion-icon>
-            </ion-label>
-            <ion-input formControlName="email" [(ngModel)]="email" placeholder="Email" type="text"></ion-input>
-          </ion-item>
+          <!-- loop address information db data -->
+          <ion-item *ngIf="signupForm.value.role === '1'"> 
+              <ion-label>
+                <ion-icon name="md-information-circle"></ion-icon>
+              </ion-label>
+              <ion-select formControlName="address">
+                <ion-option value="1">Room 1901</ion-option>
+                <ion-option value="2">Room 1902</ion-option>
+                <ion-option value="3">Room 1903</ion-option>
+                <ion-option value="4">Room 1904</ion-option>
+              </ion-select>
+            </ion-item>
 
           <button ion-button color="primary" block outline (click)="signup(signupForm.value)">Sign Up</button>
         </form>

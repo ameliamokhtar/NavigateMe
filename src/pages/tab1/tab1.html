@@ -1,22 +1,31 @@
-<ion-header>  
-<ion-navbar>
-  <ion-buttons start>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-  </ion-buttons>
-
-<ion-title>Location</ion-title>
-</ion-navbar>
-</ion-header>
-
-<ion-content class="background">
-
-    <ion-searchbar
-    [(ngModel)]="myInput"
-    [showCancelButton]="shouldShowCancel"
-    (ionInput)="onInput($event)"
-    (ionCancel)="onCancel($event)">
-  </ion-searchbar>
+<ion-header>
+    <ion-navbar>
+      <ion-buttons start>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
   
-</ion-content>
+      <ion-title>Location</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content ng-controller="ExampleController">
+  
+    <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionClear)="ionClear($event)" (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+    <ion-list>
+  
+      <ion-item-sliding *ngFor="let location of searchResult">
+        <ion-item (click)="selectLocation(location)">
+          <h3><b>{{location.location_name}}</b></h3>
+        </ion-item>
+  
+      </ion-item-sliding>
+    </ion-list>
+      
+    
+  </ion-content>
+  
+  

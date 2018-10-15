@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ServiceProvider {
-  // apiUrl: any = "http://localhost/backend"; //local
-  apiUrl: any  = "https://4ef2ec8c.ngrok.io/backend" //ngrok server
+  //apiUrl: any = "http://localhost/backend"; //local
+  apiUrl: any  = "   https://62ec8b5f.ngrok.io/backend" //ngrok server
   //apiUrl: any = "http://transientservitor.my/backend-navigateme"; //server
   headers = new Headers();
   constructor(public http: Http) {
@@ -96,5 +96,14 @@ export class ServiceProvider {
     return this.http.post(url, params, { headers: this.headers }).map((res: Response) => {
       return res.json();
     });
+  }
+
+
+  public resetPassword(mail) {
+    let url = '{url}/resetPassword.php'
+      .replace(/\{url\}/g, this.apiUrl)
+      let params = "mail=" + mail;
+    this.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    return this.http.post(url, params, { headers: this.headers });
   }
 }

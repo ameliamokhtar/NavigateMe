@@ -11,16 +11,16 @@
 
   <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="search">
-      <ion-segment-button value="staffs">
+      <ion-segment-button value="staffs" (click)="changeSegment()">
         Staffs
       </ion-segment-button>
-      <ion-segment-button value="offices">
+      <ion-segment-button value="offices" (click)="changeSegment()">
         Offices
       </ion-segment-button>
-      <ion-segment-button value="classrooms">
+      <ion-segment-button value="classrooms" (click)="changeSegment()">
         Classrooms
       </ion-segment-button>
-      <ion-segment-button value="facilities">
+      <ion-segment-button value="facilities" (click)="changeSegment()">
         Facilities
       </ion-segment-button>
     </ion-segment>
@@ -33,18 +33,16 @@
   </ion-searchbar>
 
   <div [ngSwitch]="search">
-    <ion-list *ngSwitchCase="'staffs'" >
+    <ion-list *ngSwitchCase="'staffs'">
 
-      <ion-item-sliding *ngFor="let staff of staff_information">
-        <ion-item (click)="doAlert(staff)" >
+      <ion-item-sliding *ngFor="let staff of staffInformation()">
+        <ion-item (click)="doAlert(staff)">
           <ion-avatar item-start>
             <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
           </ion-avatar>
           <h3><b>{{staff.prefix + " " + staff.full_name}}</b></h3>
           <h3><b>{{staff.position}}</b></h3>
           <h3>{{staff.address}}</h3>
-          <h3>{{staff.phone_num}}</h3>
-          <h3>{{staff.email}}</h3>
         </ion-item>
         <ion-item-options side="left">
           <button ion-button (click)="sendSMS(staff.phone_num)" color="primary">
@@ -66,15 +64,14 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'offices'">
-      <ion-item-sliding *ngFor="let location of location_information_offices">
+      <ion-item-sliding *ngFor="let location of locationInformationOffices()">
 
-        <ion-item (click)="doAlertOffices(location)" >
+        <ion-item (click)="doAlertOffices(location)">
           <ion-avatar item-start>
             <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
           </ion-avatar>
           <h3><b>{{location.location_name}}</b></h3>
           <h3>{{location.address}}</h3>
-          <h3>{{location.phone_num}}</h3>
         </ion-item>
 
         <ion-item-options side="left">
@@ -98,13 +95,13 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'classrooms'">
-      <ion-item-sliding *ngFor="let location of location_information_classrooms">
+      <ion-item-sliding *ngFor="let location of locationInformationClassrooms()">
 
-        <ion-item (click)="doAlert()" >
+        <ion-item (click)="doAlert()">
           <ion-avatar item-start>
             <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
           </ion-avatar>
-          <h3>{{location.location_name}}</h3>
+          <h3><b>{{location.location_name}}</b></h3>
           <h3>{{location.address}}</h3>
           <p>{{location.phone_num}}</p>
         </ion-item>
@@ -113,15 +110,14 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'facilities'">
-      <ion-item-sliding *ngFor="let location of location_information_facilities">
+      <ion-item-sliding *ngFor="let location of locationInformationFacilities()">
 
-        <ion-item (click)="doAlert()" >
+        <ion-item (click)="doAlert()">
           <ion-avatar item-start>
             <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
           </ion-avatar>
-          <h3>{{location.location_name}}</h3>
+          <h3><b>{{location.location_name}}</b></h3>
           <h3>{{location.address}}</h3>
-          <h3>{{location.phone_num}}</h3>
         </ion-item>
       </ion-item-sliding>
 
