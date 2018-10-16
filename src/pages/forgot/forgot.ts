@@ -38,5 +38,6 @@ export class ForgotPage {
     });
     this.service.resetPassword(forgotForm.email).subscribe();
     alert.present();
+    this.navCtrl.push('LoginPage')
   }
 }

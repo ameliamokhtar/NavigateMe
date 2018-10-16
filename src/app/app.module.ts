@@ -13,7 +13,7 @@ import { EstimoteBeacons } from '@ionic-native/estimote-beacons';
 //import { AuthService } from '../providers/auth-service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
-
+import { BeaconProvider } from '../providers/beacon/beacon-provider';
 @NgModule({
   declarations: [
     MyApp
@@ -37,7 +37,8 @@ import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/trans
     EstimoteBeacons,
     //AuthService,
     ServiceProvider,
-    AuthServiceProvider
+    AuthServiceProvider,
+    BeaconProvider
   ]
 })
 export class AppModule {}
