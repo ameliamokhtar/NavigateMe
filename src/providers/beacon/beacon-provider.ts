@@ -37,7 +37,7 @@ error => console.error()
 );
 
 // setup a beacon region – CHANGE THIS TO YOUR OWN UUID
-this.region = this.ibeacon.BeaconRegion('deskBeacon', '676f275e7ebd8b1566c8d8e8ba128c26');
+this.region = this.ibeacon.BeaconRegion('deskBeacon', 'B9407F30-F5F8-466E-AFF9-25556B57FE6D');
 
 // start ranging
 this.ibeacon.startRangingBeaconsInRegion(this.region)
