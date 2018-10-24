@@ -38,7 +38,6 @@
       <ion-item-sliding *ngFor="let staff of staffInformation()">
         <ion-item (click)="doAlert(staff)">
           <ion-avatar item-start>
-            <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
           </ion-avatar>
           <h3><b>{{staff.prefix + " " + staff.full_name}}</b></h3>
           <h3><b>{{staff.position}}</b></h3>
@@ -68,7 +67,6 @@
 
         <ion-item (click)="doAlertOffices(location)">
           <ion-avatar item-start>
-            <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
           </ion-avatar>
           <h3><b>{{location.location_name}}</b></h3>
           <h3>{{location.address}}</h3>
@@ -99,7 +97,6 @@
 
         <ion-item (click)="doAlert()">
           <ion-avatar item-start>
-            <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
           </ion-avatar>
           <h3><b>{{location.location_name}}</b></h3>
           <h3>{{location.address}}</h3>
@@ -114,7 +111,6 @@
 
         <ion-item (click)="doAlert()">
           <ion-avatar item-start>
-            <img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png">
           </ion-avatar>
           <h3><b>{{location.location_name}}</b></h3>
           <h3>{{location.address}}</h3>

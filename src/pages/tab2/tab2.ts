@@ -26,30 +26,7 @@ export class Tab2Page {
     this.setData();
   }
 
-  upload() {
-    let options = {
-      quality: 100
-    };
-
-    this.camera.getPicture(options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64:
-      const fileTransfer: TransferObject = this.transfer.create();
-      let options1: FileUploadOptions = {
-        fileKey: 'file',
-        fileName: 'profile.jpg',
-        headers: {}
-      }
-      fileTransfer.upload(imageData, 'https://260c6bd4.ngrok.io/backend/upload.php', options1)
-        .then((data) => {
-          // success
-          alert("success");
-        }, (err) => {
-          // error
-          alert("error" + JSON.stringify(err));
-        });
-    });
-  }
+  
   editProfile() {
     let prompt = this.alertCtrl.create({
       title: 'Edit profile',
@@ -128,6 +105,8 @@ export class Tab2Page {
     this.role = sessionStorage.getItem('role')
     this.mobile = sessionStorage.getItem('mobile')
     this.email = sessionStorage.getItem('email')
+    this.address = sessionStorage.getItem('address')
+
   }
   save(info) {
     this.service.updateProfileInfo(info).subscribe(res => {
@@ -136,10 +115,13 @@ export class Tab2Page {
         sessionStorage.setItem('password', res.password)
         if (res && res.role === 1)
           sessionStorage.setItem('role', 'Staff')
-        else (res && res.role === 2)
+        else if (res && res.role === 2)
         sessionStorage.setItem('role', 'Student')
+        else if (res && res.role === 2)
+        sessionStorage.setItem('role', 'Guest')
         sessionStorage.setItem('mobile', res.phone_number)
         sessionStorage.setItem('email', res.email)
+        sessionStorage.setItem('address', res.address)
         this.setData();
         this.presentToast(res.message)
       } else {

@@ -39,15 +39,20 @@ export class LoginPage {
         });
         loader.present();
         this.navCtrl.push('MainPage');
-        this.presentToast("Welcome "+data.full_name);
+        this.presentToast("Welcome back, "+data.full_name + "!");
         sessionStorage.setItem('fullname',data.full_name)
         sessionStorage.setItem('password',data.password)
         if(data && data.role === 1)
         sessionStorage.setItem('role','Staff')
-        else(data && data.role === 2)
+        else if(data && data.role === 2)
         sessionStorage.setItem('role','Student')
-        sessionStorage.setItem('mobile',data.phone_number)
+        else(data && data.role === 3)
+        sessionStorage.setItem('role','Guest')
+        sessionStorage.setItem('mobile',data.phone_num)
         sessionStorage.setItem('email',data.email)
+        sessionStorage.setItem('prefix',data.prefix)
+        sessionStorage.setItem('address',data.address)
+        sessionStorage.setItem('position',data.position)
       }else if(!data.successful){
         this.presentToast(data.error);
       }

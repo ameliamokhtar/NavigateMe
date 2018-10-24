@@ -128,7 +128,7 @@ export class Tab4Page {
 
   doAlert(staff) {
     let alert = this.alerCtrl.create({
-      title: '<img src="assets/imgs/avatar-user-business-man-399587fe24739d5a-512x512.png"> '+staff.full_name,
+      title: staff.full_name,
       message: staff.address + '<br>' + staff.position + ' <br>'+staff.phone_num+'<br>'+staff.email,
       buttons: [{
         text: 'Back',

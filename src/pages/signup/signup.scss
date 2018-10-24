@@ -1,14 +1,14 @@
 page-signup {
     .background{
-        background: linear-gradient(25deg, #C9D2D8, #85C1E9, #D2EBFC);
+        background: linear-gradient(-45deg, #D8F5F5,  #23D5AB, #23A6D5, #336A9E);
         background-size: 400% 400%;
-        animation: colorchange 30s ease-out infinite;
+        animation: colorchange 5s ease-out infinite;
     }
 
     @keyframes colorchange{
-        0%{background-position: 0% 99%}
-        50%{background-position: 100% 1%}
-        100%{background-position: 10% 90%}
+        0%{background-position: 0% 50%}
+        50%{background-position: 100% 50%}
+        100%{background-position: 0% 50%}
     }
 
     .scroll-content {

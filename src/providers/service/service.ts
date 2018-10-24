@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ServiceProvider {
-  // apiUrl: any = "http://localhost/navigateme_backend"; //local
-  // apiUrl: any  = "   https://62ec8b5f.ngrok.io/backend" //ngrok server
-  apiUrl: any = "https://bbb87a39.ngrok.io/navigateme_backend" //ngrok server lan
+  apiUrl: any = "http://localhost/navigateme_backend"; //local
+  //apiUrl: any  = " https://4dd05816.ngrok.io/backend" //ngrok server
+  // apiUrl: any = "https://bbb87a39.ngrok.io/navigateme_backend" //ngrok server lan
   //apiUrl: any = "http://transientservitor.my/backend-navigateme"; //server
   headers = new Headers();
   constructor(public http: Http) {
@@ -32,23 +32,20 @@ export class ServiceProvider {
     this.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
     let params;
     if(data.role === 1){
-      params = "username=" + data.username
-      + "&password=" + data.password
+      params = "&email=" + data.email
       + "&fullname=" + data.fullname
+      + "&password=" + data.password
+      + "&phone_num=" + data.mobile
       + "&role=" + data.role
       + "&prefix=" + data.prefix
       + "&position=" + data.position
-      + "&location_id=" + data.location_id
-      + "&phone_num=" + data.mobile
-      + "&email=" + data.email;
+      + "&address=" + data.address;
     }else{
-      params = "username=" + data.username
-        + "&password=" + data.password
-        + "&fullname=" + data.fullname
-        + "&role=" + data.role
-        + "&prefix=" + data.prefix
-        + "&phone_num=" + data.mobile
-        + "&email=" + data.email;
+      params = "&email=" + data.email
+      + "&fullname=" + data.fullname
+      + "&password=" + data.password
+      + "&phone_num=" + data.mobile
+      + "&role=" + data.role;
     }
     return this.http.post(url, params, { headers: this.headers }).map((res: Response) => {
       return res.json();
@@ -75,7 +72,6 @@ export class ServiceProvider {
       return res.json();
     });
   }
-
 
   public getOffice() {
     let url = '{url}/getOffice.php'

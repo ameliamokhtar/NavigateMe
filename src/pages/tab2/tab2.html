@@ -1,65 +1,70 @@
-
 <ion-header>
-  
-    <ion-navbar>
-      <ion-buttons start>
-        <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>My profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="background">
+
+  <h1><img src="assets/imgs/NavigateMe logo.png" height="100" width="100"></h1>
+
+  <ion-card>
+    <ion-card-content>
+
+      <ion-list no-lines>
+
+        <ion-item>
+          <ion-label stacked>Username</ion-label>
+          <ion-input disabled="true" [(ngModel)]="fullname" name="fullname" type="text"></ion-input>
+        </ion-item>
+
+        <!--<ion-item>
+          <ion-label>
+            <ion-icon name="person"></ion-icon>
+          </ion-label>
+          <ion-input disabled="true" [(ngModel)]="fullname" name="fullname" type="text"></ion-input>
+        </ion-item>-->
+
+        <ion-item>
+          <ion-label stacked>Password</ion-label>
+          <ion-input disabled="true" [(ngModel)]="password" name="password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Role</ion-label>
+          <ion-input disabled="true" [(ngModel)]="role" name="role" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Office (Staff Only)</ion-label>
+          <ion-input disabled="true" [(ngModel)]="address" name="address" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Mobile Number</ion-label>
+          <ion-input disabled="true" [(ngModel)]="mobile" name="mobile" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Email</ion-label>
+          <ion-input disabled="true" [(ngModel)]="email" name="email" type="text"></ion-input>
+        </ion-item>
+
+
+
+        <button ion-button color="primary" (click)="editProfile()">
+          <ion-icon name=""></ion-icon>Edit
         </button>
-      </ion-buttons>
-     
-        <ion-title>My profile</ion-title>
-      </ion-navbar>
-    
-    </ion-header>
-    
-    <ion-content class="background">
-       
-    <ion-avatar>
-      <h1><img src="assets/imgs/avatar-user-teacher-312a499a08079a12-512x512.png" (click)="upload()" height="30" width="30" class="center"></h1>
-      </ion-avatar>
-     
-        <ion-card>
-        <ion-card-content>
 
-          <ion-list no-lines>
-
-              <ion-item>
-                  <ion-label><ion-icon name="person"></ion-icon></ion-label>
-                  <ion-input disabled="true" [(ngModel)]="fullname" name="fullname" type="text"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                  <ion-label><ion-icon name="md-key"></ion-icon></ion-label>
-                  <ion-input disabled="true" [(ngModel)]="password" name="password" type="password"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                  <ion-label><ion-icon name="ios-information-circle"></ion-icon></ion-label>
-                  <ion-input disabled="true" [(ngModel)]="role" name="role" type="text"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                  <ion-label><ion-icon name="ios-pin"></ion-icon></ion-label>
-                  <ion-input disabled="true" [(ngModel)]="address" name="address" type="text"></ion-input>
-                </ion-item>
-                
-           
-                <ion-item>
-                  <ion-label><ion-icon name="ios-call"></ion-icon></ion-label>
-                  <ion-input disabled="true"[(ngModel)]="mobile"  name="mobile" type="text"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                      <ion-label><ion-icon name="mail"></ion-icon></ion-label>
-                      <ion-input disabled="true"[(ngModel)]="email"  name="email" type="text"></ion-input>
-                </ion-item>
-
-
-
-            <button ion-button color="primary" (click)="editProfile()"><ion-icon name=""></ion-icon>Edit</button>
-            
-                  </ion-list>
-        </ion-card-content>
-      </ion-card>
-    </ion-content>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -8,15 +8,15 @@ page-tab2 {
     }
 
     .background{
-        background: linear-gradient(25deg,#C9D2D8, #85C1E9, #D2EBFC);
+        background: linear-gradient(-45deg, #D8F5F5,  #23D5AB, #23A6D5, #336A9E);
         background-size: 400% 400%;
-        animation: colorchange 30s ease-out infinite;
+        animation: colorchange 5s ease-out infinite;
     }
 
     @keyframes colorchange{
-        0%{background-position: 0% 99%}
-        50%{background-position: 100% 1%}
-        100%{background-position: 10% 90%}
+        0%{background-position: 0% 50%}
+        50%{background-position: 100% 50%}
+        100%{background-position: 0% 50%}
     }
 
     .scroll-content {
@@ -45,10 +45,10 @@ page-tab2 {
 
 
     ion-avatar img  {
-        width:100% !important;
-        height : 100% !important;
-        max-width: 100px !important;  //any size
-        max-height: 100px !important; //any size
+        width:40% !important;
+        height :50% !important;
+        max-width: 40px !important;  //any size
+        max-height: 50px !important; //any size
         align-items: center;
         }
 }

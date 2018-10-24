@@ -20,15 +20,14 @@ export class SignupPage {
     public navParams: NavParams,
     private fb: FormBuilder) {
     this.signupForm = fb.group({
-      'username': [null, Validators.required],
-      'password': [null, Validators.required],
-      'fullname': [null, Validators.required],
-      'role': [null, Validators.required],
-      'phone_num': [null, Validators.required],
-      'prefix': [null, Validators.required],
       'email': [null, Validators.required],
+      'fullname': [null, Validators.required],
+      'password': [null, Validators.required],
+      'phone_num': [null, Validators.required],
+      'role': [null, Validators.required],
+      'prefix': [null, Validators.required],
       'position': [null, Validators.required],
-      'location': [null, Validators.required],
+      //'location': [null, Validators.required],
       'address': [null, Validators.required],
     });
   }
@@ -36,27 +35,24 @@ export class SignupPage {
   signup(signup) {
     console.log(signup);
     let signupData;
-    if(signup.role === 1){
+    if(signup.role === 1){ //staff
     signupData = {
-      'username': signup.username,
-      'password': signup.password,
+      'email': signup.email,
       'fullname': signup.fullname,
+      'password': signup.password,
+      'phone_num': signup.phone_num,
+      'role': signup.role,
+      'prefix': signup.prefix,
       'position': signup.position,
-      'location_id': signup.location,
-      'role': signup.role,
-      'prefix': signup.prefix,
-      'phone_num': signup.phone_num,
-      'email': signup.email
+      'address': signup.address,
     };
-  }else{
+  }else{ //student and guest
     signupData = {
-      'username': signup.username,
-      'password': signup.password,
+      'email': signup.email,
       'fullname': signup.fullname,
-      'role': signup.role,
-      'prefix': signup.prefix,
+      'password': signup.password,
       'phone_num': signup.phone_num,
-      'email': signup.email
+      'role': signup.role,
     };
   }
     this.service.signup(signupData).subscribe(data => {

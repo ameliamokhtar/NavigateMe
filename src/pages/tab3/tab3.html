@@ -13,30 +13,27 @@
 
 <ion-content class="background">
 
+  <h1><img src="assets/imgs/NavigateMe logo.png" height="100" width="100"></h1>
+
+
   <ion-card>
     <ion-card-content>
       <ion-list no-lines>
           <form [formGroup]="userfeedbackForm">
         <ion-item>
-          <ion-label>
-            <ion-icon name="person"></ion-icon>
-          </ion-label>
+          <ion-label stacked>Full Name</ion-label>
           <ion-input disabled="true" formControlName="fullname" [(ngModel)]="fullname" placeholder="Full name" type="text"></ion-input>
           <!--<ion-input disabled="true" [(ngModel)]="fullname" name="fullname" type="text"></ion-input>-->
         </ion-item>
 
         <ion-item>
-          <ion-label>
-            <ion-icon name="mail"></ion-icon>
-          </ion-label>
+          <ion-label stacked>Email</ion-label>
           <ion-input disabled="true" formControlName="email" [(ngModel)]="email" placeholder="Email" type="text"></ion-input>
           <!--<ion-input disabled="true" [(ngModel)]="email" name="email" type="text"></ion-input>-->
         </ion-item>
 
         <ion-item>
-          <ion-label>
-            <ion-icon name="ios-create"></ion-icon>
-          </ion-label>
+          <ion-label stacked>Message</ion-label>
           <ion-input formControlName="userfeedback" [(ngModel)]="userfeedback" placeholder="Write your message here" type="text"></ion-input>
           <!--<ion-input [(ngModel)]="userfeedback" name="userfeedback" type="text"></ion-input>-->
         </ion-item>
