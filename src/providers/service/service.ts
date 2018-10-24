@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ServiceProvider {
-  apiUrl: any = "http://localhost/navigateme_backend"; //local
+  // apiUrl: any = "http://localhost/navigateme_backend"; //local
   //apiUrl: any  = " https://4dd05816.ngrok.io/backend" //ngrok server
-  // apiUrl: any = "https://bbb87a39.ngrok.io/navigateme_backend" //ngrok server lan
+  apiUrl: any = "http://5c35e710.ngrok.io/navigateme_backend" //ngrok server lan
   //apiUrl: any = "http://transientservitor.my/backend-navigateme"; //server
   headers = new Headers();
   constructor(public http: Http) {

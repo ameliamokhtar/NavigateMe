@@ -28,12 +28,12 @@
   <button ion-button color="primary" block outline (click)="stop()">Stop</button>
   <button ion-button color="primary" block outline (click)="clear()">Clear</button>
   
-  <ion-list *ngIf="beaconList">
+  <!-- <ion-list *ngIf="beaconList">
     <ion-item *ngFor="let beacon of beaconList">
       {{beacon.address }} <br>
       {{beacon.distance }}<br>
       {{beacon.distancefiltered }}
     </ion-item>
-  </ion-list>
-  <div #map id="map"></div>
+  </ion-list> -->
+  <img id="map"/>
 </ion-content>
