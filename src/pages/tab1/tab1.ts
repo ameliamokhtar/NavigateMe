@@ -48,6 +48,7 @@ export class Tab1Page {
   lowpass: any;
   beaconList = [];
   region: any;
+  floor:any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -69,36 +70,13 @@ export class Tab1Page {
       "bbd2b66fac64f79c93bbe028e776fa3c",
       "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
     );
-
-   
-    // this.eb.startMonitoringForRegion(this.region,true).subscribe(data=>{
-    //   console.log(data);
-    // })
-    // this.ibeacon.startRangingBeaconsInRegion(this.region).then(
-    //   (data) => {
-    //     // resolve(true);
-    //     console.log(data);
-    //   },
-    //   error => {
-    //     console.error("Failed to begin monitoring: ", error);
-    //     // resolve(false);
-    //   }
-    // );
-  }
-  startLocating(){
-     // start ranging
-     this.eb.startRangingBeaconsInRegion(this.region).subscribe(data => {
-      console.log(data);
-    });
-    // onSuccess Callback
     var onSuccess = function() {
-      alert("IndoorAtlas was successfully initialized");
-      IndoorAtlas.getCurrentPosition(onSuccess2, onError2);
+      // alert("IndoorAtlas was successfully initialized");
     };
 
     // onError Callback receives a PositionError object
     function onError(error) {
-      alert("Code: " + error.code + "\n" + "Message: " + error.message);
+      // alert("Code: " + error.code + "\n" + "Message: " + error.message);
     }
 
     IndoorAtlas.initialize(onSuccess, onError, {
@@ -107,42 +85,51 @@ export class Tab1Page {
         "eHE3bzJ4tzIjUES00puoyoZlSlZ1T74ENNxJuOxlk/U5x5tm7IQs7E923BrUUtmVx9s73YK8cwiBwlNSkyrqIg4sYtN3yILJuIsJSMQ0QjqLd0+xhjPebDsH8EWDKw=="
     });
     console.log(IndoorAtlas);
+
+  }
+  startLocating() {
+    let lat = 0;
+    let long = 0;
+    let floor:any;
+    let _this
     // onSuccess Callback
-    // This method accepts a Position object, which contains the
-    // current GPS coordinates
-    var onSuccess2 = function(position) {
-      console.log(position)
+    //   This method accepts a `Position` object, which contains
+    //   the current GPS coordinates
+    function onSuccess(position) {
+      lat = position.coords.latitude;
+      long = position.coords.longitude;
       alert(
         "Latitude: " +
           position.coords.latitude +
           "\n" +
           "Longitude: " +
-          position.coords.longitude +
-          "\n" +
-          "Altitude: " +
-          position.coords.altitude +
-          "\n" +
-          "Accuracy: " +
-          position.coords.accuracy +
-          "\n" +
-          "Heading: " +
-          position.coords.heading +
-          "\n" +
-          "Floor: " +
-          position.coords.floor +
-          "\n" +
-          "Timestamp: " +
-          position.timestamp
+          position.coords.longitude
       );
-    };
-
-    // onError Callback receives a PositionError object
-    function onError2(error) {
-      alert("Code: " + error.code + "\n" + "Message: " + error.message);
     }
 
-    
+    // onError Callback receives a PositionError object
+  
+    // IndoorAtlas.watchPosition(onSuccess, onError, {
+    //   timeout: 10000
+    // });
+    function successCallback(floorplan) {
+      console.log(document.getElementById("map"));
+      document.getElementById("map").setAttribute("src", floorplan.url);
+    }
+    function errorCallback(error) {
+      console.log(error);
+    }
+    IndoorAtlas.fetchFloorPlanWithId("83789798-f42a-4b79-9b4e-d21759dc3656",
+      successCallback,
+      errorCallback,
+      function(floorplan) {
+       return floorplan;
+        // Use route.legs to draw the route etc.
+      }
+    );
+    console.log(IndoorAtlas)
   }
+
   startScanningForBeacons() {
     evothings.eddystone.startScan(
       data => {
