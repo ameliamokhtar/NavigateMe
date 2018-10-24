@@ -27,7 +27,6 @@ export class SignupPage {
       'role': [null, Validators.required],
       'prefix': [null, Validators.required],
       'position': [null, Validators.required],
-      //'location': [null, Validators.required],
       'address': [null, Validators.required],
     });
   }
@@ -35,7 +34,7 @@ export class SignupPage {
   signup(signup) {
     console.log(signup);
     let signupData;
-    if(signup.role === 1){ //staff
+    if(signup.role == 1){ //staff
     signupData = {
       'email': signup.email,
       'fullname': signup.fullname,

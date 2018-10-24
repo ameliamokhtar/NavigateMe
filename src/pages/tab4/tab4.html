@@ -41,7 +41,6 @@
           </ion-avatar>
           <h3><b>{{staff.prefix + " " + staff.full_name}}</b></h3>
           <h3><b>{{staff.position}}</b></h3>
-          <h3>{{staff.address}}</h3>
         </ion-item>
         <ion-item-options side="left">
           <button ion-button (click)="sendSMS(staff.phone_num)" color="primary">
@@ -69,20 +68,15 @@
           <ion-avatar item-start>
           </ion-avatar>
           <h3><b>{{location.location_name}}</b></h3>
-          <h3>{{location.address}}</h3>
         </ion-item>
 
         <ion-item-options side="left">
-          <button ion-button (click)="sendSMS(location.phone_num)" color="primary">
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
           <button ion-button (click)="call(location.phone_num)" color="secondary">
             <ion-icon name="call"></ion-icon>
             Call
           </button>
         </ion-item-options>
-        <ion-item-options (click)="NavigateStaff()" side="right">
+        <ion-item-options (click)="NavigateLocation(location)" side="right">
           <button ion-button color="primary">
             <ion-icon name="ios-navigate"></ion-icon>
             Navigate
@@ -95,26 +89,34 @@
     <ion-list *ngSwitchCase="'classrooms'">
       <ion-item-sliding *ngFor="let location of locationInformationClassrooms()">
 
-        <ion-item (click)="doAlert()">
+        <ion-item (click)="doAlertClassrooms(location)">
           <ion-avatar item-start>
           </ion-avatar>
           <h3><b>{{location.location_name}}</b></h3>
-          <h3>{{location.address}}</h3>
-          <p>{{location.phone_num}}</p>
         </ion-item>
+        <ion-item-options (click)="NavigateLocation(location)" side="right">
+          <button ion-button color="primary">
+            <ion-icon name="ios-navigate"></ion-icon>
+            Navigate
+          </button>
+        </ion-item-options>
       </ion-item-sliding>
-
     </ion-list>
 
     <ion-list *ngSwitchCase="'facilities'">
       <ion-item-sliding *ngFor="let location of locationInformationFacilities()">
 
-        <ion-item (click)="doAlert()">
+        <ion-item (click)="doAlertFacilities(location)">
           <ion-avatar item-start>
           </ion-avatar>
           <h3><b>{{location.location_name}}</b></h3>
-          <h3>{{location.address}}</h3>
         </ion-item>
+        <ion-item-options (click)="NavigateLocation(location)" side="right">
+          <button ion-button color="primary">
+            <ion-icon name="ios-navigate"></ion-icon>
+            Navigate
+          </button>
+        </ion-item-options>
       </ion-item-sliding>
 
     </ion-list>

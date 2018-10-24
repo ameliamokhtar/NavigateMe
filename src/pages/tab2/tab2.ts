@@ -21,6 +21,7 @@ export class Tab2Page {
   email: any;
   address: any;
   position: any;
+  prefix: any;
 
   constructor(private transfer: Transfer, private camera: Camera, public service: ServiceProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
     this.setData();
@@ -48,6 +49,14 @@ export class Tab2Page {
         {
           name: 'address',
           value: this.address
+        },
+        {
+          name: 'prefix',
+          value: this.prefix
+        },
+        {
+          name: 'position',
+          value: this.position
         },
         {
           name: 'mobile',
@@ -106,6 +115,8 @@ export class Tab2Page {
     this.mobile = sessionStorage.getItem('mobile')
     this.email = sessionStorage.getItem('email')
     this.address = sessionStorage.getItem('address')
+    this.prefix = sessionStorage.getItem('prefix')
+    this.position = sessionStorage.getItem('position')
 
   }
   save(info) {

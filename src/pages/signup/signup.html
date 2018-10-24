@@ -29,8 +29,8 @@
 
           <ion-item>
               <ion-label stacked>Mobile Number</ion-label>
-              <ion-input formControlName="phone_num" [(ngModel)]="phone_num" placeholder="" type="text"></ion-input>
-            </ion-item>
+              <ion-input formControlName="phone_num" type="tel" maxlength="10" [(ngModel)]="phone_num"></ion-input>
+              </ion-item>
 
           <ion-item>
             <ion-label stacked>Role</ion-label>
@@ -43,7 +43,7 @@
 
           <!-- loop position information db data -->
 
-          <ion-item *ngIf="signupForm.value.role === '1'"> 
+          <ion-item *ngIf="signupForm.value.role == '1'"> 
               <ion-label stacked>Prefix</ion-label>
               <ion-select formControlName="prefix">
                 <ion-option value="Mr.">Mr.</ion-option>
@@ -55,7 +55,7 @@
               </ion-select>
             </ion-item>
 
-          <ion-item *ngIf="signupForm.value.role === '1'"> 
+          <ion-item *ngIf="signupForm.value.role == '1'"> 
             <ion-label stacked>Position</ion-label>
             <ion-select formControlName="position">
               <ion-option value="Lecturer">Lecturer</ion-option>
@@ -66,15 +66,11 @@
           </ion-item>
 
           <!-- loop address information db data -->
-          <ion-item *ngIf="signupForm.value.role === '1'"> 
-              <ion-label stacked>Office</ion-label>
-              <ion-select formControlName="address">
-                <ion-option value="1901">Room 1901</ion-option>
-                <ion-option value="1902">Room 1902</ion-option>
-                <ion-option value="1903">Room 1903</ion-option>
-                <ion-option value="1904">Room 1904</ion-option>
-              </ion-select>
+          <ion-item *ngIf="signupForm.value.role == '1'">
+            <ion-label stacked>Room No./Level</ion-label>
+            <ion-input formControlName="address" type="text" [(ngModel)]="address"></ion-input>
             </ion-item>
+
 
           <button ion-button color="primary" block outline (click)="signup(signupForm.value)">Sign Up</button>
         </form>

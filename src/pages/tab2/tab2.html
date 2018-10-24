@@ -22,7 +22,7 @@
       <ion-list no-lines>
 
         <ion-item>
-          <ion-label stacked>Username</ion-label>
+          <ion-label stacked>Full Name</ion-label>
           <ion-input disabled="true" [(ngModel)]="fullname" name="fullname" type="text"></ion-input>
         </ion-item>
 
@@ -39,6 +39,16 @@
         </ion-item>
 
         <ion-item>
+          <ion-label stacked>Mobile Number</ion-label>
+          <ion-input disabled="true" [(ngModel)]="mobile" name="mobile" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Email</ion-label>
+          <ion-input disabled="true" [(ngModel)]="email" name="email" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
           <ion-label stacked>Role</ion-label>
           <ion-input disabled="true" [(ngModel)]="role" name="role" type="text"></ion-input>
         </ion-item>
@@ -49,16 +59,14 @@
         </ion-item>
 
         <ion-item>
-          <ion-label stacked>Mobile Number</ion-label>
-          <ion-input disabled="true" [(ngModel)]="mobile" name="mobile" type="text"></ion-input>
+          <ion-label stacked>Position (Staff Only)</ion-label>
+          <ion-input disabled="true" [(ngModel)]="position" name="position" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label stacked>Email</ion-label>
-          <ion-input disabled="true" [(ngModel)]="email" name="email" type="text"></ion-input>
+          <ion-label stacked>Prefix (Staff Only)</ion-label>
+          <ion-input disabled="true" [(ngModel)]="prefix" name="prefix" type="text"></ion-input>
         </ion-item>
-
-
 
         <button ion-button color="primary" (click)="editProfile()">
           <ion-icon name=""></ion-icon>Edit

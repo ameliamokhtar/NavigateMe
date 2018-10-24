@@ -82,10 +82,10 @@ export class Tab4Page {
     });
   }
 
-  doAlertOffices(office) {
+  doAlertOffices(location) {
     let alert = this.alerCtrl.create({
-      title: 'Student Development & Campus Lifestyle',
-      message: 'Level 1<br>+6(03) 21754000<br>',
+      title: location.location_name,
+      message: location.address,
       buttons: [{
         text: 'Back',
         handler: data => {
@@ -97,17 +97,17 @@ export class Tab4Page {
         handler: data => {
           console.log('Navigate clicked');
           this.navCtrl.push('NavigatePage');
-          this.loadToastOffice();
+          this.loadToastLocation(location);
         }
       }]
     });
     alert.present()
   }
 
-  doAlertFaci() {
+  doAlertClassrooms(location) {
     let alert = this.alerCtrl.create({
-      title: 'Student Development & Campus Lifestyle',
-      message: 'Level 14<br>+6(03) 21754000<br>',
+      title: location.location_name,
+      message: location.address,
       buttons: [{
         text: 'Back',
         handler: data => {
@@ -119,12 +119,35 @@ export class Tab4Page {
         handler: data => {
           console.log('Navigate clicked');
           this.navCtrl.push('NavigatePage');
-          this.loadToastOffice();
+          this.loadToastLocation(location);
         }
       }]
     });
     alert.present()
   }
+
+  doAlertFacilities(location) {
+    let alert = this.alerCtrl.create({
+      title: location.location_name,
+      message: location.address,
+      buttons: [{
+        text: 'Back',
+        handler: data => {
+          console.log('Back clicked');
+        }
+      },
+      {
+        text: 'Navigate',
+        handler: data => {
+          console.log('Navigate clicked');
+          this.navCtrl.push('NavigatePage');
+          this.loadToastLocation(location);
+        }
+      }]
+    });
+    alert.present()
+  }
+
 
   doAlert(staff) {
     let alert = this.alerCtrl.create({
@@ -141,7 +164,7 @@ export class Tab4Page {
         handler: data => {
           console.log('Navigate clicked');
           this.navCtrl.push('NavigatePage');
-          this.loadToastStaff();
+          this.loadToastStaff(staff);
         }
       }]
     });
@@ -152,28 +175,28 @@ export class Tab4Page {
     this.navCtrl.push('MainPage');
   }
 
-  NavigateStaff() {
+  NavigateStaff(staff) {
     this.navCtrl.push('NavigatePage');
-    this.loadToastStaff();
+    this.loadToastStaff(staff);
   }
 
-  NavigateOffice() {
+  NavigateLocation(location) {
     this.navCtrl.push('NavigatePage');
-    this.loadToastOffice();
+    this.loadToastLocation(location);
   }
 
-  loadToastStaff() {
+  loadToastStaff(staff) {
     let loader = this.loadingCtrl.create({
-      content: "Initiating navigation to Dr Mohd Nizam's office.",
+      content: "Initiating navigation to " + staff.full_name,
       duration: 3000
     });
     loader.present();
   }
 
 
-  loadToastOffice() {
+  loadToastLocation(location) {
     let loader = this.loadingCtrl.create({
-      content: "Initiating navigation to SDCL office.",
+      content: "Initiating navigation to " + location.location_name,
       duration: 3000
     });
     loader.present();
