@@ -22,7 +22,7 @@ export class Tab2Page {
   address: any;
   position: any;
   prefix: any;
-
+  roleId:any;
   constructor(private transfer: Transfer, private camera: Camera, public service: ServiceProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
     this.setData();
   }
@@ -105,13 +105,20 @@ export class Tab2Page {
     toast.present();
   }
 
-  logout() {
-    this.navCtrl.push(LoginPage);
-  }
+  // logout() {
+  //   this.navCtrl.push('LoginPage');
+  // }
   setData() {
     this.fullname = sessionStorage.getItem('fullname')
     this.password = sessionStorage.getItem('password')
     this.role = sessionStorage.getItem('role')
+    if(this.role && this.role == 'Staff'){
+    this.roleId = 1;
+    }else if(this.role && this.role == 'Student'){
+    this.roleId = 2;
+    }else if(this.role && this.role == 'Guest'){
+    this.roleId = 3;
+    }
     this.mobile = sessionStorage.getItem('mobile')
     this.email = sessionStorage.getItem('email')
     this.address = sessionStorage.getItem('address')
@@ -124,11 +131,11 @@ export class Tab2Page {
       if (res && res.successful) {
         sessionStorage.setItem('fullname', res.full_name)
         sessionStorage.setItem('password', res.password)
-        if (res && res.role === 1)
+        if (res && res.role == 1)
           sessionStorage.setItem('role', 'Staff')
-        else if (res && res.role === 2)
+        else if (res && res.role == 2)
         sessionStorage.setItem('role', 'Student')
-        else if (res && res.role === 2)
+        else if (res && res.role == 3)
         sessionStorage.setItem('role', 'Guest')
         sessionStorage.setItem('mobile', res.phone_number)
         sessionStorage.setItem('email', res.email)

@@ -42,17 +42,22 @@ export class LoginPage {
         this.presentToast("Welcome back, "+data.full_name + "!");
         sessionStorage.setItem('fullname',data.full_name)
         sessionStorage.setItem('password',data.password)
-        if(data && data.role === 1)
+        if(data && data.role == 1){
         sessionStorage.setItem('role','Staff')
-        else if(data && data.role === 2)
-        sessionStorage.setItem('role','Student')
-        else(data && data.role === 3)
-        sessionStorage.setItem('role','Guest')
-        sessionStorage.setItem('mobile',data.phone_num)
-        sessionStorage.setItem('email',data.email)
+        sessionStorage.setItem('roleId',data.role)
         sessionStorage.setItem('prefix',data.prefix)
         sessionStorage.setItem('address',data.address)
-        sessionStorage.setItem('position',data.position)
+        sessionStorage.setItem('position',data.position)}
+        else if(data && data.role == 2){
+        sessionStorage.setItem('role','Student')
+        sessionStorage.setItem('roleId',data.role)}
+        else if(data && data.role == 3){
+        sessionStorage.setItem('role','Guest')
+        sessionStorage.setItem('roleId',data.role)
+        sessionStorage.setItem('mobile',data.phone_num)
+        sessionStorage.setItem('email',data.email)}
+        sessionStorage.setItem('mobile',data.phone_num)
+        sessionStorage.setItem('email',data.email)
       }else if(!data.successful){
         this.presentToast(data.error);
       }

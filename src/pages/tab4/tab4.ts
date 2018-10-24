@@ -212,34 +212,34 @@ export class Tab4Page {
   }
   onInput(ev){
     this.searchResult = [];
-    if(this.myInput && this.search === 'staffs'){
+    if(this.myInput && this.search == 'staffs'){
        this.staff_information.forEach(staff=>{
          if(staff.full_name.toLowerCase().indexOf(this.myInput.toLowerCase()) > -1){
-           if(this.searchResult.indexOf(staff) === -1){
+           if(this.searchResult.indexOf(staff) == -1){
            this.searchResult.push(staff);
           }
          }
        })
-    }else if(this.myInput && this.search === 'offices'){
+    }else if(this.myInput && this.search =='offices'){
       this.location_information_offices.forEach(office=>{
         if(office.location_name.toLowerCase().indexOf(this.myInput.toLowerCase()) > -1){
-          if(this.searchResult.indexOf(office) === -1){
+          if(this.searchResult.indexOf(office) ==-1){
           this.searchResult.push(office);
          }
         }
       })
-    }else if(this.myInput && this.search === 'classrooms'){
+    }else if(this.myInput && this.search =='classrooms'){
       this.location_information_classrooms.forEach(classroom=>{
         if(classroom.location_name.toLowerCase().indexOf(this.myInput.toLowerCase()) > -1){
-          if(this.searchResult.indexOf(classroom) === -1){
+          if(this.searchResult.indexOf(classroom) == -1){
           this.searchResult.push(classroom);
          }
         }
       })
-    }else if(this.myInput && this.search === 'facilities'){
+    }else if(this.myInput && this.search =='facilities'){
       this.location_information_facilities.forEach(facility=>{
         if(facility.location_name.toLowerCase().indexOf(this.myInput.toLowerCase()) > -1){
-          if(this.searchResult.indexOf(facility) === -1){
+          if(this.searchResult.indexOf(facility) ==-1){
           this.searchResult.push(facility);
          }
         }
@@ -283,13 +283,13 @@ export class Tab4Page {
       if (res.successful) {
         if(res && res.location){
           res.location.forEach(loc=>{
-            if(loc.location_type === '2'){
+            if(loc.location_type == '2'){
               this.location_information_offices.push(loc);
             }
-            if(loc.location_type === '3'){
+            if(loc.location_type == '3'){
               this.location_information_classrooms.push(loc);
             }
-            if(loc.location_type === '4'){
+            if(loc.location_type == '4'){
               this.location_information_facilities.push(loc);
             }
           })
@@ -309,7 +309,7 @@ export class Tab4Page {
 
   filter(kat){
     return this.data.filter(menu=>{
-      return menu.kat.toLowerCase() === kat.toLowerCase();     
+      return menu.kat.toLowerCase() == kat.toLowerCase();     
     });
   }
 

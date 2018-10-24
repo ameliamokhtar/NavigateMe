@@ -52,22 +52,22 @@
           <ion-label stacked>Role</ion-label>
           <ion-input disabled="true" [(ngModel)]="role" name="role" type="text"></ion-input>
         </ion-item>
-
-        <ion-item>
+        
+        <ion-item *ngIf="roleId && roleId == 1">
           <ion-label stacked>Office (Staff Only)</ion-label>
           <ion-input disabled="true" [(ngModel)]="address" name="address" type="text"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item *ngIf="roleId && roleId == 1">
           <ion-label stacked>Position (Staff Only)</ion-label>
           <ion-input disabled="true" [(ngModel)]="position" name="position" type="text"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item *ngIf="roleId && roleId == 1">
           <ion-label stacked>Prefix (Staff Only)</ion-label>
           <ion-input disabled="true" [(ngModel)]="prefix" name="prefix" type="text"></ion-input>
         </ion-item>
-
+        
         <button ion-button color="primary" (click)="editProfile()">
           <ion-icon name=""></ion-icon>Edit
         </button>

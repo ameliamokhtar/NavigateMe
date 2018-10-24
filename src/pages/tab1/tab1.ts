@@ -187,13 +187,13 @@ export class Tab1Page {
             .toLowerCase()
             .indexOf(this.myInput.toLowerCase()) > -1
         ) {
-          if (this.searchResult.indexOf(location) === -1) {
+          if (this.searchResult.indexOf(location) ==-1) {
             this.searchResult.push(location);
           }
         }
       });
     }
-    if (this.searchResult.length === 0) {
+    if (this.searchResult.length ==0) {
       this.searchResult.push({ location_name: "Location Not Found" });
     }
   }
