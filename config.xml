@@ -86,11 +86,15 @@
     <plugin name="cordova-plugin-estimote" spec="^0.8.0" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-camera" spec="git+https://github.com/apache/cordova-plugin-camera.git" />
-    <plugin name="cordova-plugin-eddystone" spec="^1.3.0" />
     <allow-navigation href="http://192.168.0.118:8101" sessionid="521f9050" />
-    <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <plugin name="cordova-sms-plugin" spec="git+https://github.com/cordova-sms/cordova-sms-plugin.git" />
     <plugin name="com.unarin.cordova.beacon" spec="git+https://github.com/petermetz/cordova-plugin-ibeacon.git" />
+    <allow-navigation href="http://192.168.1.80:8100" />
+    <plugin name="cordova-plugin-eddystone" spec="^1.3.0" />
+    <plugin name="cordova-plugin-console" spec="^1.1.0" />
+    <plugin name="cordova-plugin-spinner" spec="^1.1.0" />
+    <plugin name="cordova-plugin-indooratlas" spec="https://github.com/IndoorAtlas/cordova-plugin.git" />
+    <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <engine name="ios" spec="git+https://github.com/apache/cordova-ios.git#4.4.0-ios-sim" />
     <engine name="android" spec="6.4.0" />
 </widget>
