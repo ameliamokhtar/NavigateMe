@@ -13,6 +13,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class SignupPage {
 
   signupForm: FormGroup;
+  location:any= [] ;
   constructor(public service: ServiceProvider,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
@@ -29,11 +30,20 @@ export class SignupPage {
       'position': [null, Validators.required],
       'address': [null, Validators.required],
     });
+    this.service.getOffice().subscribe(loc=>{
+      this.location = loc.location;
+    });
   }
 
   signup(signup) {
     console.log(signup);
     let signupData;
+    let location_id ;
+    this.location.forEach(loc=>{
+      if(loc.address == signup.address){
+        location_id = loc.location_id; 
+      }
+    })
     if(signup.role == 1){ //staff
     signupData = {
       'email': signup.email,
@@ -44,6 +54,7 @@ export class SignupPage {
       'prefix': signup.prefix,
       'position': signup.position,
       'address': signup.address,
+      'location_id':location_id
     };
   }else{ //student and guest
     signupData = {

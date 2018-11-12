@@ -39,7 +39,8 @@ export class ServiceProvider {
       + "&role=" + data.role
       + "&prefix=" + data.prefix
       + "&position=" + data.position
-      + "&address=" + data.address;
+      + "&address=" + data.address
+      + "&location_id=" + data.location_id;
     }else{
       params = "&email=" + data.email
       + "&fullname=" + data.fullname

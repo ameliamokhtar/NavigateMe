@@ -68,7 +68,10 @@
           <!-- loop address information db data -->
           <ion-item *ngIf="signupForm.value.role == '1'">
             <ion-label stacked>Room No./Level</ion-label>
-            <ion-input formControlName="address" type="text" [(ngModel)]="address"></ion-input>
+            <!-- <ion-input formControlName="address" type="text" [(ngModel)]="address"></ion-input> -->
+            <ion-select formControlName="address">
+              <ion-option *ngFor="let loc of location" value="{{loc.address}}">{{loc.address}}</ion-option>
+            </ion-select>
             </ion-item>
 
 
