@@ -96,6 +96,7 @@ export class Tab4Page {
         text: 'Navigate',
         handler: data => {
           console.log('Navigate clicked');
+            sessionStorage.setItem('location_id',location.location_id)
           this.navCtrl.push('NavigatePage');
           this.loadToastLocation(location);
         }
@@ -118,6 +119,7 @@ export class Tab4Page {
         text: 'Navigate',
         handler: data => {
           console.log('Navigate clicked');
+          sessionStorage.setItem('location_id',location.location_id)
           this.navCtrl.push('NavigatePage');
           this.loadToastLocation(location);
         }
@@ -140,6 +142,7 @@ export class Tab4Page {
         text: 'Navigate',
         handler: data => {
           console.log('Navigate clicked');
+          sessionStorage.setItem('location_id',location.location_id)
           this.navCtrl.push('NavigatePage');
           this.loadToastLocation(location);
         }
@@ -163,6 +166,7 @@ export class Tab4Page {
         text: 'Navigate',
         handler: data => {
           console.log('Navigate clicked');
+          sessionStorage.setItem('location_id',staff.location_id)
           this.navCtrl.push('NavigatePage');
           this.loadToastStaff(staff);
         }

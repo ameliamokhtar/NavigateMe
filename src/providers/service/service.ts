@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ServiceProvider {
-  //apiUrl: any = "http://localhost/navigateme_backend"; //local
-  apiUrl: any  = " https://a236b6d2.ngrok.io/backend" //ngrok server
-  // apiUrl: any = "https://bbb87a39.ngrok.io/navigateme_backend" //ngrok server lan
+  apiUrl: any = "http://localhost/navigateme_backend"; //local
+  // apiUrl: any  = "http://ca3bfd13.ngrok.io/backend" //ngrok server
+  // apiUrl: any = "http://92d3d359.ngrok.io/navigateme_backend" //ngrok server lan
   //apiUrl: any = "http://transientservitor.my/backend-navigateme"; //server
   headers = new Headers();
   constructor(public http: Http) {
@@ -111,5 +111,16 @@ export class ServiceProvider {
       let params = "mail=" + mail;
     this.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
     return this.http.post(url, params, { headers: this.headers });
+  }
+
+
+  public getNavigation(data) {
+    let url = '{url}/getNavigate.php'
+      .replace(/\{url\}/g, this.apiUrl)
+    this.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    let params = "location_id=" + data;
+    return this.http.post(url, params, { headers: this.headers }).map((res: Response) => {
+      return res.json();
+    });
   }
 }

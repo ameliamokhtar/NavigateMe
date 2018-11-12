@@ -24,7 +24,8 @@
 
     </ion-item-sliding>
   </ion-list> -->
-  <button ion-button color="primary" block outline (click)="startLocating()">Scan</button>
+  <button ion-button color="primary" block outline (click)="startScanningForBeacons()">Scan</button>
+  <button ion-button color="primary" block outline (click)="stop()">Stop</button>
   
   <!-- <ion-list *ngIf="beaconList">
     <ion-item *ngFor="let beacon of beaconList">
