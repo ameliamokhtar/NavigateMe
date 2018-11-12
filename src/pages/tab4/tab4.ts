@@ -43,7 +43,7 @@ export class Tab4Page {
   searchResult:any=[];
 
   constructor(public http: Http, private service: ServiceProvider, private toastCtrl: ToastController, public loadingCtrl: LoadingController,
-    private sms: SMS, private callSvc: CallNumber, public alerCtrl: AlertController,
+    private sms: SMS, private callSvc: CallNumber, public alertCtrl: AlertController,
     public navCtrl: NavController, public navParams: NavParams) {
       console.log('Hello MenuProvider Provider');
       this.data = [];
@@ -83,7 +83,7 @@ export class Tab4Page {
   }
 
   doAlertOffices(location) {
-    let alert = this.alerCtrl.create({
+    let alert = this.alertCtrl.create({
       title: location.location_name,
       message: location.address,
       buttons: [{
@@ -105,7 +105,7 @@ export class Tab4Page {
   }
 
   doAlertClassrooms(location) {
-    let alert = this.alerCtrl.create({
+    let alert = this.alertCtrl.create({
       title: location.location_name,
       message: location.address,
       buttons: [{
@@ -127,7 +127,7 @@ export class Tab4Page {
   }
 
   doAlertFacilities(location) {
-    let alert = this.alerCtrl.create({
+    let alert = this.alertCtrl.create({
       title: location.location_name,
       message: location.address,
       buttons: [{
@@ -150,7 +150,7 @@ export class Tab4Page {
 
 
   doAlert(staff) {
-    let alert = this.alerCtrl.create({
+    let alert = this.alertCtrl.create({
       title: staff.full_name,
       message: staff.address + '<br>' + staff.position + ' <br>'+staff.phone_num+'<br>'+staff.email,
       buttons: [{

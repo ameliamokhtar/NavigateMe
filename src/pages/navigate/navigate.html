@@ -11,5 +11,26 @@
   </ion-header>
   
   <ion-content class="background">
+      <h1><img src="assets/imgs/NavigateMe logo.png" height="100" width="100"></h1>
+
+      <ion-card>
+          <form [formGroup]="navigateForm">
+          <ion-item>
+            <ion-icon name="md-arrow-round-up" item-start medium></ion-icon>
+            <h2>Take an elevator to Level 19</h2>
+          </ion-item>
+
+              <ion-item>
+                <ion-icon name="md-arrow-round-up" item-start medium></ion-icon>
+                <ion-input disabled="true" formControlName="fullname" [(ngModel)]="fullname" placeholder="Full name" type="text"></ion-input>
+              </ion-item>
+
+          <ion-item>
+              <ion-icon name="md-pin" item-start medium></ion-icon>
+              <h2>You have arrived to your destination</h2>
+            </ion-item>
+          </form>
+        </ion-card>
   </ion-content>
+  
   

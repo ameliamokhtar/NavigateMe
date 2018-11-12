@@ -1,28 +1,46 @@
 page-navigate {
 
-    .background{
-        background-image: url("https://phoneradar.com/wp-content/uploads/2016/07/Google-Maps-Voice-Navigation-1.png");
-        background-repeat: no-repeat;
-        background-size: 370px 580px;
-        background-position: 45% 45%; 
+   
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
     }
-    
-        #floating-panel {
-            position: absolute;
-            top: 10px;
-            right: 5px;
-            z-index: 5;
-            background-color: #fff;
-            padding: 5px;
-            border: 1px solid #999;
-            border-radius: 10px;
-            text-align: center;
-            font-family: 'Roboto','sans-serif';
-            line-height: 30px;
-            padding-left: 10px;
-          }
-          #map {
-            height: 100%;
-          }
 
+    .background{
+        background: linear-gradient(-45deg, #D8F5F5,  #23D5AB, #23A6D5, #336A9E);
+        background-size: 400% 400%;
+        animation: colorchange 5s ease-out infinite;
+    }
+
+    @keyframes colorchange{
+        0%{background-position: 0% 50%}
+        50%{background-position: 100% 50%}
+        100%{background-position: 0% 50%}
+    }
+
+    .scroll-content {
+        text-align: center;
+    }
+
+    ion-card.card{
+        background: rgba(232, 230, 230, 0.2px);
+        border-radius: 10px;
+    }
+
+    .item{
+        background: rgba(232, 230, 230, 0px);
+    }
+
+    ion-input{
+        border-bottom: #FD4D73, solid 1px;
+    }
+
+    h1{
+        color: #ffff;
+        font-size: 3em;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: lighter;
+    }
 }

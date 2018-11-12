@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServiceProvider {
   //apiUrl: any = "http://localhost/navigateme_backend"; //local
-  apiUrl: any  = "https://65c70245.ngrok.io/backend" //ngrok server
+  apiUrl: any  = " https://a236b6d2.ngrok.io/backend" //ngrok server
   // apiUrl: any = "https://bbb87a39.ngrok.io/navigateme_backend" //ngrok server lan
   //apiUrl: any = "http://transientservitor.my/backend-navigateme"; //server
   headers = new Headers();
@@ -66,6 +66,15 @@ export class ServiceProvider {
 
   public getStaff() {
     let url = '{url}/getStaff.php'
+      .replace(/\{url\}/g, this.apiUrl)
+    this.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    return this.http.get(url, { headers: this.headers }).map((res: Response) => {
+      return res.json();
+    });
+  }
+
+  public getLocation() {
+    let url = '{url}/getLocation.php'
       .replace(/\{url\}/g, this.apiUrl)
     this.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
     return this.http.get(url, { headers: this.headers }).map((res: Response) => {
