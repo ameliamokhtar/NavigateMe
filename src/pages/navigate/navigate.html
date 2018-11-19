@@ -19,7 +19,7 @@
             <h2>Take an elevator to Level 19</h2>
           </ion-item> -->
 
-              <ion-item *ngFor="let routes of route">
+              <ion-item *ngFor="let routes of route" text-wrap>
                 <ion-icon *ngIf="getRouteArrow(routes) == 1" name="md-arrow-round-up" item-start medium></ion-icon>
                 <ion-icon *ngIf="getRouteArrow(routes) == 2" name="arrow-round-forward" item-start medium></ion-icon>
                 <ion-icon *ngIf="getRouteArrow(routes) == 3" name="arrow-round-back" item-start medium></ion-icon>
@@ -27,7 +27,7 @@
                 <h2>{{routes}}</h2>
               </ion-item>
 
-          <ion-item>
+          <ion-item text-wrap>
               <ion-icon name="md-pin" item-start medium></ion-icon>
               <h2>You have arrived to your destination</h2>
             </ion-item>
